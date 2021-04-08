@@ -23,6 +23,16 @@ namespace BYUEgyptExcavation.Controllers
             return View();
         }
 
+        public IActionResult MummyList()
+        {
+            return View();
+        }
+
+        public IActionResult Gallery()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
