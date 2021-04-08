@@ -15,7 +15,7 @@ namespace BYUEgyptExcavation.Models
 
 
 
-			string dbname = appConfig["Fag el-Gamous Cemetery"];
+			string dbname = appConfig["aa1voqu21n6p7tp"];
 
 
 
