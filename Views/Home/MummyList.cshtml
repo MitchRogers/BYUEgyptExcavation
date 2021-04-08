@@ -2,4 +2,11 @@
     ViewData["Title"] = "Mummy Page - User";
 }
 
+@model IEnumerable<BYUEgyptExcavation.Models.Mummy>
+
 <h1>Mummy List Page</h1>
+
+@foreach (var x in Model)
+{
+    <a>@x.MummyId</a>
+}

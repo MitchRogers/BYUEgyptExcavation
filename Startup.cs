@@ -35,6 +35,9 @@ namespace BYUEgyptExcavation
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddDbContext<BYUEgyptExcavationsFagelGamousContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("TempDB")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
