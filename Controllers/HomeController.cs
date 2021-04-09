@@ -11,12 +11,12 @@ namespace BYUEgyptExcavation.Controllers
 {
     public class HomeController : Controller
     {
-        //private BYUEgyptExcavationsFagelGamousContext _context;
+        
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger/*, BYUEgyptExcavationsFagelGamousContext context*/)
+        public HomeController(ILogger<HomeController> logger)
         {
-            //_context = context;
+            
             _logger = logger;
         }
 
@@ -27,7 +27,7 @@ namespace BYUEgyptExcavation.Controllers
 
         public IActionResult MummyList()
         {
-            return View(/*_context.Burial*/);
+            return View();
         }
 
         public IActionResult Gallery()
