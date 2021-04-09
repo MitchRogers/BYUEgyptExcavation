@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BYUEgyptExcavation.Models;
 
-namespace BYUEgyptExcavation
+namespace BYUEgyptExcavation.Controllers
 {
     public class AuthsController : Controller
     {

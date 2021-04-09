@@ -36,7 +36,7 @@ namespace BYUEgyptExcavation
             services.AddRazorPages();
 
             services.AddDbContext<BYUEgyptExcavationsFagelGamousContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("TempDB")));
+                options.UseSqlServer(Configuration.GetConnectionString("BYUEgyptDB")));
 
         }
 
