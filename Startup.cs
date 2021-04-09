@@ -37,8 +37,8 @@ namespace BYUEgyptExcavation
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            //services.AddDbContext<BYUEgyptExcavationsFagelGamousContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("BYUEgyptDB")));
+            services.AddDbContext<BYUEgyptExcavationsFagelGamousContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("BYUEgyptDB")));
 
             services.Configure<IdentityOptions>(options =>
             {
