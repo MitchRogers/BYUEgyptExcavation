@@ -16,18 +16,18 @@ namespace BYUEgyptExcavation.Controllers
 
         public HomeController(ILogger<HomeController> logger, BYUEgyptExcavationsFagelGamousContext context)
         {
-            _context = context;
+            //_context = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View(_context.Burial);
+            return View();
         }
 
         public IActionResult MummyList()
         {
-            return View();
+            return View(_context.Burial);
         }
 
         public IActionResult Gallery()

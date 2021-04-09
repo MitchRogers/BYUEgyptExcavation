@@ -29,14 +29,16 @@ namespace BYUEgyptExcavation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Helpers.GetRDSConnectionString()));
+        // options.UseSqlite(
+        options.UseSqlServer(
+            Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
             services.AddDbContext<BYUEgyptExcavationsFagelGamousContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("TempDB")));
+                options.UseSqlServer(Configuration.GetConnectionString("BYUEgyptDB")));
 
         }
 
