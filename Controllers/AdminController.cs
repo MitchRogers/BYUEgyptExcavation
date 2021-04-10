@@ -10,9 +10,9 @@ namespace BYUEgyptExcavation.Controllers
 {
     public class AdminController : Controller
     {
-        private UserManager<AppUser> _userManager;
-        private IPasswordHasher<AppUser> _passwordHasher;
-        public AdminController(UserManager<AppUser> usermanager, IPasswordHasher<AppUser> passwordHash)
+        private UserManager<IdentityUser> _userManager;
+        private IPasswordHasher<IdentityUser> _passwordHasher;
+        public AdminController(UserManager<IdentityUser> usermanager, IPasswordHasher<IdentityUser> passwordHash)
         {
             _userManager = usermanager;
             _passwordHasher = passwordHash;
@@ -30,7 +30,7 @@ namespace BYUEgyptExcavation.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser appUser = new AppUser
+                IdentityUser appUser = new IdentityUser
                 {
                     UserName = ($"{user.FirstName}{user.LastName}"),
                     Email = user.Email
@@ -51,7 +51,7 @@ namespace BYUEgyptExcavation.Controllers
 
         public async Task<IActionResult> Update(string id)
         {
-            AppUser user = await _userManager.FindByIdAsync(id);
+            IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
                 return View(user);
             else
@@ -61,7 +61,7 @@ namespace BYUEgyptExcavation.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(string id, string email, string password)
         {
-            AppUser user = await _userManager.FindByIdAsync(id);
+            IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
                 if (!string.IsNullOrEmpty(email))
@@ -97,7 +97,7 @@ namespace BYUEgyptExcavation.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
-            AppUser user = await _userManager.FindByIdAsync(id);
+            IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
                 IdentityResult result = await _userManager.DeleteAsync(user);
