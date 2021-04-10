@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BYUEgyptExcavation.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,13 +19,16 @@ namespace BYUEgyptExcavation.Controllers
             _passwordHasher = passwordHash;
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View(_userManager.Users);
         }
 
+        [Authorize(Roles = "Admin")]
         public ViewResult Create() => View();
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(User user)
         {
@@ -49,6 +53,7 @@ namespace BYUEgyptExcavation.Controllers
             return View(user);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id)
         {
             IdentityUser user = await _userManager.FindByIdAsync(id);
@@ -58,6 +63,7 @@ namespace BYUEgyptExcavation.Controllers
                 return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(string id, string email, string password)
         {
@@ -94,6 +100,7 @@ namespace BYUEgyptExcavation.Controllers
                 ModelState.AddModelError("", error.Description);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
