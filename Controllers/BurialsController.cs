@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BYUEgyptExcavation.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BYUEgyptExcavation.Controllers
 {
@@ -24,7 +25,9 @@ namespace BYUEgyptExcavation.Controllers
             return View(await _context.Burial.ToListAsync());
         }
 
+
         // GET: Researcher Burials
+        [Authorize(Roles = "Research")]
         public async Task<IActionResult> ResearchIndex()
         {
             return View(await _context.Burial.ToListAsync());
