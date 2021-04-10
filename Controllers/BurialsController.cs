@@ -24,6 +24,12 @@ namespace BYUEgyptExcavation.Controllers
             return View(await _context.Burial.ToListAsync());
         }
 
+        // GET: Researcher Burials
+        public async Task<IActionResult> ResearchIndex()
+        {
+            return View(await _context.Burial.ToListAsync());
+        }
+
         // GET: Burials/Details/5
         public async Task<IActionResult> Details(int? id)
         {
