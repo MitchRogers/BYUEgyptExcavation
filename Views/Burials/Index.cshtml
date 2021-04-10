@@ -1,7 +1,9 @@
-﻿@model IEnumerable<BYUEgyptExcavation.Models.Burial>
+﻿@*@model IEnumerable<BYUEgyptExcavation.Models.Burial>*@
+
+@model IndexViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Mummy List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +12,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table id="MummiesTable">
     <thead>
         <tr>
             <th>
@@ -244,11 +246,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.EpiphysealUnion)
             </th>*@
-            <th></th>
+            <th>
+                More Info
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Burial) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.BurialId)
@@ -490,3 +494,7 @@
 }
     </tbody>
 </table>
+<br />
+<div page-info="@Model.PageNumberingInfo" page-btn="btn btn-primary">
+
+</div>

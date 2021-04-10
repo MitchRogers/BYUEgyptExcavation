@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BYUEgyptExcavation.Models;
+
+using BYUEgyptExcavation.Models.ViewModels;
+
 using Microsoft.AspNetCore.Authorization;
+
 
 namespace BYUEgyptExcavation.Controllers
 {
@@ -20,17 +24,69 @@ namespace BYUEgyptExcavation.Controllers
         }
 
         // GET: Burials
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNum = 1)
         {
-            return View(await _context.Burial.ToListAsync());
+            int pageSize = 10;
+            int skip = ((pageNum - 1) * pageSize);
+
+            return View(new IndexViewModel
+
+            {
+                //actual data set being returned
+                Burial = (await _context.Burial
+                .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
+                .ToListAsync()),
+
+                /*.Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)*/
+
+                //pages being made.
+                PageNumberingInfo = new PageNumberingInfo
+                {
+                    NumItemsPerPage = pageSize,
+                    CurrentPage = pageNum,
+
+                    //for filtering, this needs to be different than just the total count.
+                    TotalNumItems = _context.Burial.Count()
+                }
+
+            }) ;
+
+
         }
 
 
         // GET: Researcher Burials
         //[Authorize(Roles = "Research, Admin")]
-        public async Task<IActionResult> ResearchIndex()
+        public async Task<IActionResult> ResearchIndex(int pageNum = 1)
         {
-            return View(await _context.Burial.ToListAsync());
+            int pageSize = 10;
+            int skip = ((pageNum - 1) * pageSize);
+
+            return View(new IndexViewModel
+
+            {
+                //actual data set being returned
+                Burial = (await _context.Burial
+                .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
+                .ToListAsync()),
+
+                /*.Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)*/
+
+                //pages being made.
+                PageNumberingInfo = new PageNumberingInfo
+                {
+                    NumItemsPerPage = pageSize,
+                    CurrentPage = pageNum,
+
+                    //for filtering, this needs to be different than just the total count.
+                    TotalNumItems = _context.Burial.Count()
+                }
+
+            });
+
+
         }
 
         // GET: Burials/Details/5
