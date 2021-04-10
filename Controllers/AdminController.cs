@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BYUEgyptExcavation.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,27 +11,30 @@ namespace BYUEgyptExcavation.Controllers
 {
     public class AdminController : Controller
     {
-        private UserManager<AppUser> _userManager;
-        private IPasswordHasher<AppUser> _passwordHasher;
-        public AdminController(UserManager<AppUser> usermanager, IPasswordHasher<AppUser> passwordHash)
+        private UserManager<IdentityUser> _userManager;
+        private IPasswordHasher<IdentityUser> _passwordHasher;
+        public AdminController(UserManager<IdentityUser> usermanager, IPasswordHasher<IdentityUser> passwordHash)
         {
             _userManager = usermanager;
             _passwordHasher = passwordHash;
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View(_userManager.Users);
         }
 
+        [Authorize(Roles = "Admin")]
         public ViewResult Create() => View();
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(User user)
         {
             if (ModelState.IsValid)
             {
-                AppUser appUser = new AppUser
+                IdentityUser appUser = new IdentityUser
                 {
                     UserName = ($"{user.FirstName}{user.LastName}"),
                     Email = user.Email
@@ -49,19 +53,21 @@ namespace BYUEgyptExcavation.Controllers
             return View(user);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id)
         {
-            AppUser user = await _userManager.FindByIdAsync(id);
+            IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
                 return View(user);
             else
                 return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(string id, string email, string password)
         {
-            AppUser user = await _userManager.FindByIdAsync(id);
+            IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
                 if (!string.IsNullOrEmpty(email))
@@ -94,10 +100,11 @@ namespace BYUEgyptExcavation.Controllers
                 ModelState.AddModelError("", error.Description);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
-            AppUser user = await _userManager.FindByIdAsync(id);
+            IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
                 IdentityResult result = await _userManager.DeleteAsync(user);

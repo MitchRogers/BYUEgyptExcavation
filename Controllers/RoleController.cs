@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using BYUEgyptExcavation.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BYUEgyptExcavation.Controllers
 {
     public class RoleController : Controller
     {
         private RoleManager<IdentityRole> roleManager;
-        private UserManager<AppUser> userManager;
-        public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<AppUser> userMrg)
+        private UserManager<IdentityUser> userManager;
+        public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<IdentityUser> userMrg)
         {
             roleManager = roleMgr;
             userManager = userMrg;
         }
 
+        [Authorize(Roles = "Admin")]
         public ViewResult Index() => View(roleManager.Roles);
 
         private void Errors(IdentityResult result)
@@ -27,8 +29,10 @@ namespace BYUEgyptExcavation.Controllers
                 ModelState.AddModelError("", error.Description);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create() => View();
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create([Required] string name)
         {
@@ -43,6 +47,7 @@ namespace BYUEgyptExcavation.Controllers
             return View(name);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
@@ -60,12 +65,13 @@ namespace BYUEgyptExcavation.Controllers
             return View("Index", roleManager.Roles);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id)
         {
             IdentityRole role = await roleManager.FindByIdAsync(id);
-            List<AppUser> members = new List<AppUser>();
-            List<AppUser> nonMembers = new List<AppUser>();
-            foreach (AppUser user in userManager.Users)
+            List<IdentityUser> members = new List<IdentityUser>();
+            List<IdentityUser> nonMembers = new List<IdentityUser>();
+            foreach (IdentityUser user in userManager.Users)
             {
                 var list = await userManager.IsInRoleAsync(user, role.Name) ? members : nonMembers;
                 list.Add(user);
@@ -78,6 +84,7 @@ namespace BYUEgyptExcavation.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(RoleModification model)
         {
@@ -86,7 +93,7 @@ namespace BYUEgyptExcavation.Controllers
             {
                 foreach (string userId in model.AddIds ?? new string[] { })
                 {
-                    AppUser user = await userManager.FindByIdAsync(userId);
+                    IdentityUser user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.AddToRoleAsync(user, model.RoleName);
@@ -96,7 +103,7 @@ namespace BYUEgyptExcavation.Controllers
                 }
                 foreach (string userId in model.DeleteIds ?? new string[] { })
                 {
-                    AppUser user = await userManager.FindByIdAsync(userId);
+                    IdentityUser user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.RemoveFromRoleAsync(user, model.RoleName);

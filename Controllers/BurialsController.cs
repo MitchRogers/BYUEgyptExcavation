@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BYUEgyptExcavation.Models;
+
 using BYUEgyptExcavation.Models.ViewModels;
+
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace BYUEgyptExcavation.Controllers
 {
@@ -51,7 +55,9 @@ namespace BYUEgyptExcavation.Controllers
 
         }
 
+
         // GET: Researcher Burials
+        //[Authorize(Roles = "Research, Admin")]
         public async Task<IActionResult> ResearchIndex(int pageNum = 1)
         {
             int pageSize = 10;
