@@ -27,7 +27,7 @@ namespace BYUEgyptExcavation.Controllers
 
 
         // GET: Researcher Burials
-        //[Authorize(Roles = "Research")]
+        //[Authorize(Roles = "Research, Admin")]
         public async Task<IActionResult> ResearchIndex()
         {
             return View(await _context.Burial.ToListAsync());
