@@ -1,4 +1,5 @@
 ﻿@model IndexViewModel
+@inject SignInManager<IdentityUser> user;
 
 @{
     ViewData["Title"] = "Index";
@@ -9,11 +10,12 @@
     <h1>Index</h1>
 
     <p>
-        <a asp-action="Create">Create New</a>
+        <a class="btn btn-secondary btn-sm" asp-action="Create">Create New</a>
     </p>
     <table id="MummiesTable">
         <thead>
             <tr>
+                <th>Details</th>
                 <th>
                     Location@*@Html.DisplayNameFor(model => model.BurialId)*@
                 </th>
@@ -247,9 +249,19 @@
                     <th>
                         @Html.DisplayNameFor(model => model.EpiphysealUnion)
                     </th>*@
-                <th>
-                    More Info
-                </th>
+                @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research")) 
+                { 
+                    <th>Edit</th>
+                }  
+
+                @if (user.IsSignedIn(User) && (User.IsInRole("Admin")))
+                 {
+                   <th>Delete</th>
+                 }
+                    
+
+               
+                
             </tr>
         </thead>
         <tbody>
@@ -257,7 +269,10 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.BurialId)
+                        <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@item.MummyId">Details</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BurialId)                                                
                     </td>
                     @*<td>
                             @Html.DisplayFor(modelItem => item.BurialNumber)
@@ -487,11 +502,21 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.EpiphysealUnion)
                         </td>*@
-                    <td>
-                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.MummyId">Edit</a>          @*MAKE INTO BUTTONS*@
-                        <a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.MummyId">Details</a>
-                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.MummyId">Delete</a>
-                    </td>
+                         @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+                         {
+                                <td>
+                                    <a class="btn btn-outline-secondary btn-sm" asp-action="Edit" asp-route-id="@item.MummyId">Edit</a> @*MAKE INTO BUTTONS*@
+                                </td>
+                         }
+
+                        @if (user.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <td>
+                                <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.MummyId">Delete</a>
+                            </td>
+                        }
+                        
+                    
                 </tr>
             }
         </tbody>
