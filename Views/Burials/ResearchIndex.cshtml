@@ -7,6 +7,7 @@
 }
 
 <div class="container">
+    <br /><br />
     <h1>Index</h1>
 
     <p>
@@ -249,19 +250,19 @@
                     <th>
                         @Html.DisplayNameFor(model => model.EpiphysealUnion)
                     </th>*@
-                @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research")) 
-                { 
+                @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+                {
                     <th>Edit</th>
-                }  
+                }
 
                 @if (user.IsSignedIn(User) && (User.IsInRole("Admin")))
-                 {
-                   <th>Delete</th>
-                 }
-                    
+                {
+                    <th>Delete</th>
+                }
 
-               
-                
+
+
+
             </tr>
         </thead>
         <tbody>
@@ -272,7 +273,7 @@
                         <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@item.MummyId">Details</a>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.BurialId)                                                
+                        @Html.DisplayFor(modelItem => item.BurialId)
                     </td>
                     @*<td>
                             @Html.DisplayFor(modelItem => item.BurialNumber)
@@ -502,21 +503,21 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.EpiphysealUnion)
                         </td>*@
-                         @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
-                         {
-                                <td>
-                                    <a class="btn btn-outline-secondary btn-sm" asp-action="Edit" asp-route-id="@item.MummyId">Edit</a> @*MAKE INTO BUTTONS*@
-                                </td>
-                         }
+                    @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+                    {
+                        <td>
+                            <a class="btn btn-outline-secondary btn-sm" asp-action="Edit" asp-route-id="@item.MummyId">Edit</a> @*MAKE INTO BUTTONS*@
+                        </td>
+                    }
 
-                        @if (user.IsSignedIn(User) && User.IsInRole("Admin"))
-                        {
-                            <td>
-                                <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.MummyId">Delete</a>
-                            </td>
-                        }
-                        
-                    
+                    @if (user.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.MummyId">Delete</a>
+                        </td>
+                    }
+
+
                 </tr>
             }
         </tbody>
