@@ -24,35 +24,71 @@ namespace BYUEgyptExcavation.Controllers
         }
 
         // GET: Burials
-        public async Task<IActionResult> Index(int pageNum = 1)
+        public IActionResult Index(string id, int pageNum = 1)
         {
+            var filters = new Filters(id);
+            ViewBag.Filters = filters;
+            //ViewBag.Mummies = _context.Burial.
+
+            IQueryable<Burial> query = _context.Burial;
+
+            if (filters.HasPreservationIndex)
+            {
+                query = query.Where(t => t.PreservationIndex == filters.PreservationIndex);
+            }
+
+            if (filters.HasHeadDirection)
+            {
+                query = query.Where(t => t.HeadDirection == filters.HeadDirection);
+            }
+
+            if (filters.HasGender)
+            {
+                query = query.Where(t => t.GenderBodyCol == filters.Gender);
+            }
+
+            if (filters.HasHairColor)
+            {
+                query = query.Where(t => t.HairColor == filters.HairColor);
+            }
+
+            var mummies = query.OrderBy(t => t.BurialId).ToList();
             int pageSize = 10;
             int skip = ((pageNum - 1) * pageSize);
 
-            return View(new IndexViewModel
+            return View(mummies);
 
-            {
-                //actual data set being returned
-                Burial = (await _context.Burial
-                .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
-                .ToListAsync()),
+            //return View(new IndexViewModel
 
-                /*.Skip((pageNum - 1) * pageSize)
-                .Take(pageSize)*/
+            //{
+            //    //actual data set being returned
+            //    Burial = (await _context.Burial
+            //    .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
+            //    .ToListAsync()),
 
-                //pages being made.
-                PageNumberingInfo = new PageNumberingInfo
-                {
-                    NumItemsPerPage = pageSize,
-                    CurrentPage = pageNum,
+            //    /*.Skip((pageNum - 1) * pageSize)
+            //    .Take(pageSize)*/
 
-                    //for filtering, this needs to be different than just the total count.
-                    TotalNumItems = _context.Burial.Count()
-                }
+            //    //pages being made.
+            //    PageNumberingInfo = new PageNumberingInfo
+            //    {
+            //        NumItemsPerPage = pageSize,
+            //        CurrentPage = pageNum,
 
-            }) ;
+            //        //for filtering, this needs to be different than just the total count.
+            //        TotalNumItems = _context.Burial.Count()
+               // }
+
+            //}) ;
 
 
+        }
+
+        [HttpPost]
+        public IActionResult Filter(string[] filter)
+        {
+            string id = string.Join('-', filter);
+            return RedirectToAction("Index", new { ID = id });
         }
 
 
