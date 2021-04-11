@@ -46,8 +46,8 @@ namespace BYUEgyptExcavation
             //     {
             //         IConfigurationSection googleAuthNSection =
             //         Configuration.GetSection("Authentication:Google");
-            //         options.ClientId = googleAuthNSection["ClientId"];
-            //         options.ClientSecret = googleAuthNSection["ClientSecret"];
+            //         options.ClientId = "643984651422-lc3negko76kmc7l62a9occ1rol4g72gh.apps.googleusercontent.com";
+            //         options.ClientSecret = "PJDylqDi9hvjrk4a2aayp_r";
             //     });
 
 
