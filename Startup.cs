@@ -41,6 +41,16 @@ namespace BYUEgyptExcavation
             services.AddDbContext<BYUEgyptExcavationsFagelGamousContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BYUEgyptDB")));
 
+            services.AddAuthentication()
+                 .AddGoogle(options =>
+                 {
+                     IConfigurationSection googleAuthNSection =
+                     Configuration.GetSection("Authentication:Google");
+                     options.ClientId = googleAuthNSection["ClientId"];
+                     options.ClientSecret = googleAuthNSection["ClientSecret"];
+                 });
+
+
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
