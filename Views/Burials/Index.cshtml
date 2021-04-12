@@ -1,6 +1,6 @@
 ﻿@*@model IEnumerable<BYUEgyptExcavation.Models.Burial>*@
 
-@model IEnumerable<Burial>
+@model IndexViewModel
 @inject SignInManager<IdentityUser> user;
 
 @{
@@ -21,7 +21,7 @@
 
 
 
-    <h1>Index</h1>
+    <h1>Mummy List</h1>
     <div class="row" style="margin-top:3rem;">
         <div class="col-sm-2" style="margin-top:3rem; margin-left:1rem; ">
 
@@ -89,7 +89,6 @@
 
 
         <div class="container col-sm-9">
-            <br /><br />
             <h1>Index</h1>
 
             @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
@@ -355,7 +354,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Burial)
                     {
                         <tr>
                             <td>
@@ -612,9 +611,9 @@
                 </tbody>
             </table>
             <br />
-            @*<div class="text-center mb-5" page-research="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
+            <div class="text-center mb-5" page-research="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
                  page-classes-enabled="true" page-class-normal="btn btn-sm btn-outline-primary" page-class-selected="btn btn-sm btn-primary text-white">
-            </div>*@
+            </div>
 
         </div>
     </div>

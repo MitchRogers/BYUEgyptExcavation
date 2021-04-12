@@ -7,8 +7,10 @@ namespace BYUEgyptExcavation.Models.ViewModels
 {
     public class IndexViewModel
     {
-        public List<Burial> Burial { get; set; }
+        public IEnumerable<Burial> Burial { get; set; }
 
         public PageNumberingInfo PageNumberingInfo { get; set; }
+
     }
+
 }
