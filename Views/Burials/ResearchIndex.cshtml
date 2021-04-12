@@ -7,15 +7,15 @@
 }
 
 <div class="container">
-    <br /><br />
+    <br /><br /><br /><br />
     <h1>Index</h1>
 
-   @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
-   {
+    @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+    {
         <p>
             <a class="btn btn-secondary btn-sm" asp-action="Create">Create New</a>
         </p>
-   }
+    }
     <table id="MummiesTable">
         <thead>
             <tr>

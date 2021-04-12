@@ -10727,7 +10727,8 @@ header.masthead {
 
 
 .hero-image {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), white 98%), url('/images/DSCN1000.JPG');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), white 98%), url('/images/DSCN0967.JPG');
+    background-color: black;
     height: 40%;
     background-position: center;
     background-repeat: no-repeat;
