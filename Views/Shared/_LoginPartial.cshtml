@@ -2,9 +2,13 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+<!--NavBar for after logging in-->
+
+
 <ul class="navbar-nav ml-auto my-2 my-lg-0">
     @if (SignInManager.IsSignedIn(User))
     {
+        <!--If the user is logged in, show this navBar view-->
         <li class="nav-item">
             <a class="nav-link text-dark btn btn-outline-primary px-4 py-2 mx-1" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
         </li>
@@ -16,6 +20,7 @@
     }
     else
     {
+        <!--If the user is not logged in, show this navBar view-->
         <li class="nav-item link-spacer">
             <a class="nav-link text-dark btn btn-outline-primary px-4 py-2 mx-1" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
