@@ -18,7 +18,7 @@ namespace BYUEgyptExcavation.Models
             HeadDirection = filters[1];
             Gender = filters[2];
             HairColor = filters[3];
-            MummyId = filters[4];
+            MummyId = filters[4]; //repush
             //YearFound = filters[4];
 
             //HairTaken = filters[5];
