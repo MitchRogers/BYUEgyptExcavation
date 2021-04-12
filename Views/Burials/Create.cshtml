@@ -5,6 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script>
+    function BuildBurialID() {
+        var locNS = document.getElementById("buriallocationns").value;
+        var lowpairNS = document.getElementById("lowpairns").value;
+        var highpairNS = document.getElementById("highpairns").value;
+        var locEW = document.getElementById("buriallocationew").value;
+        var lowpairEW = document.getElementById("lowpairew").value;
+        var highpairEW = document.getElementById("highpairew").value;
+        var burialArea = document.getElementById("burialarea").value;
+        var burialNumber = document.getElementById("burialnumber").value;
+        var burialId = document.getElementById("burialid");
+
+        var output = locNS + " " + lowpairNS + "/" + highpairNS + " " +
+            locEW + " " + lowpairEW + "/" + highpairEW + " " +
+            burialArea + " #" + burialNumber;
+
+        burialId.value = output;
+    }
+</script>
+
 <div class="container">
     <br /><br /><br /><br />
     <h2 class="text-center">BYU Egypt Excavation - Fag el-Gamous Cemetary</h2>
@@ -95,41 +117,41 @@
                   <div class="row">
                       <div class="form-group col-lg-4">
                           <label asp-for="BurialLocationNs" class="control-label">Burial Location NS</label>
-                          <input asp-for="BurialLocationNs" class="form-control" placeholder="N / S" />
+                          <input asp-for="BurialLocationNs" class="form-control" placeholder="N / S" id="buriallocationns" />
                           <span asp-validation-for="BurialLocationNs" class="text-danger"></span>
                       </div>
                       <div class="form-group col-lg-4">
                           <label asp-for="LowPairNs" class="control-label">Low #</label>
-                          <input asp-for="LowPairNs" class="form-control" placeholder="20" />
+                          <input asp-for="LowPairNs" class="form-control" placeholder="20" id="lowpairns" />
                           <span asp-validation-for="LowPairNs" class="text-danger"></span>
                       </div>
                       <div class="form-group col-lg-4">
                           <label asp-for="HighPairNs" class="control-label">High #</label>
-                          <input asp-for="HighPairNs" class="form-control" placeholder="30" />
+                          <input asp-for="HighPairNs" class="form-control" placeholder="30" id="highpairns" />
                           <span asp-validation-for="HighPairNs" class="text-danger"></span>
                       </div>
                   </div>
                   <div class="row">
                       <div class="form-group col-4">
                           <label asp-for="BurialLocationEw" class="control-label">Burial Location EW</label>
-                          <input asp-for="BurialLocationEw" class="form-control" placeholder="E / W" />
+                          <input asp-for="BurialLocationEw" class="form-control" placeholder="E / W" id="buriallocationew" />
                           <span asp-validation-for="BurialLocationEw" class="text-danger"></span>
                       </div>
                       <div class="form-group col-4">
                           <label asp-for="LowPairEw" class="control-label">Low #</label>
-                          <input asp-for="LowPairEw" class="form-control" placeholder="170" />
+                          <input asp-for="LowPairEw" class="form-control" placeholder="170" id="lowpairew" />
                           <span asp-validation-for="LowPairEw" class="text-danger"></span>
                       </div>
                       <div class="form-group col-4">
                           <label asp-for="HighPairEw" class="control-label">High #</label>
-                          <input asp-for="HighPairEw" class="form-control" placeholder="180" />
+                          <input asp-for="HighPairEw" class="form-control" placeholder="180" id="highpairew" />
                           <span asp-validation-for="HighPairEw" class="text-danger"></span>
                       </div>
                   </div>
                   <div class="row">
                       <div class="form-group col-5 offset-1">
                           <label asp-for="BurialSubplot" class="control-label">Burial Area</label>
-                          <select asp-for="BurialSubplot" class="form-control">
+                          <select asp-for="BurialSubplot" class="form-control" id="burialarea">
                               <option value="" disabled selected></option>
                               <option value="NE">Northeast</option>
                               <option value="NW">Northwest</option>
@@ -140,14 +162,19 @@
                       </div>
                       <div class="form-group col-5">
                           <label asp-for="BurialNumber" class="control-label">Burial Number</label>
-                          <input asp-for="BurialNumber" class="form-control" placeholder="9" />
+                          <input asp-for="BurialNumber" class="form-control" placeholder="9" id="burialnumber" />
                           <span asp-validation-for="BurialNumber" class="text-danger"></span>
                       </div>
                   </div>
                   <div class="row">
                       <div class="form-group col-10 offset-1">
                           <label asp-for="BurialId" class="control-label">Burial ID</label>
-                          <input asp-for="BurialId" class="form-control" placeholder="N 20/30 E 170/180 SW #9" />
+                          <div class="input-group">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-success mt-1 mr-2" onclick="BuildBurialID()"><i class="fas fa-sync-alt"></i></button>
+                              </span>
+                              <input asp-for="BurialId" class="form-control" placeholder="N 20/30 E 170/180 SW #9" id="burialid" />
+                          </div>
                           <span asp-validation-for="BurialId" class="text-danger"></span>
                       </div>
                   </div>

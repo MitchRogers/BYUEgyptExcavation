@@ -8,478 +8,563 @@
 <div class="container">
     <br /><br /><br /><br />
     <h1>Details</h1>
-
+    <br />
     <div>
-        <h4>Burial</h4>
         <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BurialId)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BurialId)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BurialNumber)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BurialNumber)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BurialLocationNs)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BurialLocationNs)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.LowPairNs)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.LowPairNs)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HighPairNs)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HighPairNs)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BurialLocationEw)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BurialLocationEw)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.LowPairEw)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.LowPairEw)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HighPairEw)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HighPairEw)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BurialSubplot)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BurialSubplot)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BurialDepth)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BurialDepth)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SouthToHead)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SouthToHead)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SouthToFeet)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SouthToFeet)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.EastToHead)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.EastToHead)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.EastToFeet)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.EastToFeet)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.LengthOfRemains)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.LengthOfRemains)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PreservationIndex)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PreservationIndex)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BurialSituationNotes)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BurialSituationNotes)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ArtifactsTakenNotes)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ArtifactsTakenNotes)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SampleTakenNotes)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SampleTakenNotes)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HairTaken)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HairTaken)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SoftTissueTaken)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SoftTissueTaken)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BoneTaken)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BoneTaken)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ToothTaken)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ToothTaken)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.TextileTaken)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.TextileTaken)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ArtifactFound)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ArtifactFound)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Wrapped)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Wrapped)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HeadDirection)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HeadDirection)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.YearFound)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.YearFound)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.MonthFound)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.MonthFound)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.DayFound)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.DayFound)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.UserInitials)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.UserInitials)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.GenderGe)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.GenderGe)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.GenderMethod)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.GenderMethod)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.GeFunctionTotal)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.GeFunctionTotal)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.GenderBodyCol)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.GenderBodyCol)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HairColor)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HairColor)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.EstimateAge)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.EstimateAge)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.AgeMethod)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.AgeMethod)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.EstimateLivingStature)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.EstimateLivingStature)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ToothAttrition)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ToothAttrition)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ToothEruption)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ToothEruption)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PathologyAnomalies)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PathologyAnomalies)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SampleNumber)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SampleNumber)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BasilarSuture)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BasilarSuture)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.VentralArc)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.VentralArc)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SubpubicAngle)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SubpubicAngle)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SciaticNotch)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SciaticNotch)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PubicBone)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PubicBone)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PreaurSulcus)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PreaurSulcus)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.MedialIpRamus)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.MedialIpRamus)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.DorsalPitting)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.DorsalPitting)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ForemanMagnum)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ForemanMagnum)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.FemurHead)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.FemurHead)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HumerusHead)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HumerusHead)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Osteophytosis)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Osteophytosis)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PubicSymphysis)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PubicSymphysis)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.FemurLength)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.FemurLength)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HumerusLength)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HumerusLength)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.TibiaLength)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.TibiaLength)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Robust)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Robust)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SupraorbitalRidges)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SupraorbitalRidges)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.OrbitEdge)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.OrbitEdge)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ParietalBossing)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ParietalBossing)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Gonian)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Gonian)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.NuchalCrest)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.NuchalCrest)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ZygomaticCrest)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ZygomaticCrest)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CranialSuture)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CranialSuture)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.MaximumCranialLength)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.MaximumCranialLength)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.MaximumCranialBreadth)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.MaximumCranialBreadth)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BasionBregmaHeight)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BasionBregmaHeight)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BasionNasion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BasionNasion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BasionProsthionLength)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BasionProsthionLength)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BizygomaticDiameter)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BizygomaticDiameter)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.NasionProsthion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.NasionProsthion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.MaximumNasalBreadth)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.MaximumNasalBreadth)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.InterorbitalBreadth)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.InterorbitalBreadth)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.EpiphysealUnion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.EpiphysealUnion)
-            </dd>
-        </dl>
+        <br />
+        <div class="row col-12">
+            <div class="form-group col-3">
+                <label asp-for="UserInitials" class="control-label">Recorder's Initials</label>
+                <p asp-for="UserInitials" class="form-control">@Html.DisplayFor(model => model.UserInitials)</p>
+                <span asp-validation-for="UserInitials" class="text-danger"></span>
+            </div>
+            <div class="form-group col-2">
+                <label asp-for="YearFound" class="control-label">Year Found</label>
+                <p asp-for="YearFound" class="form-control">@Html.DisplayFor(model => model.YearFound)<p />
+                <span asp-validation-for="YearFound" class="text-danger"></span>
+            </div>
+            <div class="form-group col-3">
+                <label asp-for="MonthFound" class="control-label">Month Found</label>
+                <p asp-for="MonthFound" class="form-control">@Html.DisplayFor(model => model.MonthFound)</p>
+                <span asp-validation-for="MonthFound" class="text-danger"></span>
+            </div>
+            <div class="form-group col-2">
+                <label asp-for="DayFound" class="control-label">Day Found</label>
+                <p asp-for="DayFound" class="form-control">@Html.DisplayFor(model => model.DayFound)</p>
+                <span asp-validation-for="DayFound" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*FIELDSET FOR BURIAL ID INFORMATION*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Burial ID</legend>
+            <div class="row">
+                <div class="form-group col-lg-4">
+                    <label asp-for="BurialLocationNs" class="control-label">Burial Location NS</label>
+                    <p asp-for="BurialLocationNs" class="form-control">@Html.DisplayFor(model => model.BurialLocationNs)</p>
+                    <span asp-validation-for="BurialLocationNs" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label asp-for="LowPairNs" class="control-label">Low #</label>
+                    <p asp-for="LowPairNs" class="form-control">@Html.DisplayFor(model => model.LowPairNs)</p>
+                    <span asp-validation-for="LowPairNs" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label asp-for="HighPairNs" class="control-label">High #</label>
+                    <p asp-for="HighPairNs" class="form-control">@Html.DisplayFor(model => model.HighPairNs)</p>
+                    <span asp-validation-for="HighPairNs" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label asp-for="BurialLocationEw" class="control-label">Burial Location EW</label>
+                    <p asp-for="BurialLocationEw" class="form-control">@Html.DisplayFor(model => model.BurialLocationEw)</p>
+                    <span asp-validation-for="BurialLocationEw" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="LowPairEw" class="control-label">Low #</label>
+                    <p asp-for="LowPairEw" class="form-control">@Html.DisplayFor(model => model.LowPairEw)</p>
+                    <span asp-validation-for="LowPairEw" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="HighPairEw" class="control-label">High #</label>
+                    <p asp-for="HighPairEw" class="form-control">@Html.DisplayFor(model => model.HighPairEw)</p>
+                    <span asp-validation-for="HighPairEw" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-5 offset-1">
+                    <label asp-for="BurialSubplot" class="control-label">Burial Area</label>
+                    <p asp-for="BurialSubplot" class="form-control">@Html.DisplayFor(model => model.BurialSubplot)</p>
+                    <span asp-validation-for="BurialSubplot" class="text-danger"></span>
+                </div>
+                <div class="form-group col-5">
+                    <label asp-for="BurialNumber" class="control-label">Burial Number</label>
+                    <p asp-for="BurialNumber" class="form-control">@Html.DisplayFor(model => model.BurialNumber)</p>
+                    <span asp-validation-for="BurialNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-10 offset-1">
+                    <label asp-for="BurialId" class="control-label">Burial ID</label>
+                    <p asp-for="BurialId" class="form-control">@Html.DisplayFor(model => model.BurialId)</p>
+                    <span asp-validation-for="BurialId" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*FIELDSET FOR BURIAL METRICS INFORMATION*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Burial Metrics</legend>
+            <div class="row">
+                <div class="form-group col-5 offset-1">
+                    <label asp-for="SouthToHead" class="control-label">South to Head</label>
+                    <p asp-for="SouthToHead" class="form-control">@Html.DisplayFor(model => model.SouthToHead)</p>
+                    <span asp-validation-for="SouthToHead" class="text-danger"></span>
+                </div>
+                <div class="form-group col-5">
+                    <label asp-for="SouthToFeet" class="control-label">South to Feet</label>
+                    <p asp-for="SouthToFeet" class="form-control">@Html.DisplayFor(model => model.SouthToFeet)</p>
+                    <span asp-validation-for="SouthToFeet" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-5 offset-1">
+                    <label asp-for="EastToHead" class="control-label">East to Head</label>
+                    <p asp-for="EastToHead" class="form-control">@Html.DisplayFor(model => model.EastToHead)</p>
+                    <span asp-validation-for="EastToHead" class="text-danger"></span>
+                </div>
+                <div class="form-group col-5">
+                    <label asp-for="EastToFeet" class="control-label">East to Feet</label>
+                    <p asp-for="EastToFeet" class="form-control"> @Html.DisplayFor(model => model.EastToFeet)</p>
+                    <span asp-validation-for="EastToFeet" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-5 offset-1">
+                    <label asp-for="BurialDepth" class="control-label">Burial Depth</label>
+                    <p asp-for="BurialDepth" class="form-control">@Html.DisplayFor(model => model.BurialDepth)</p>
+                    <span asp-validation-for="BurialDepth" class="text-danger"></span>
+                </div>
+                <div class="form-group col-5">
+                    <label asp-for="LengthOfRemains" class="control-label">Length of Remains</label>
+                    <p asp-for="LengthOfRemains" class="form-control">@Html.DisplayFor(model => model.LengthOfRemains)</p>
+                    <span asp-validation-for="LengthOfRemains" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6 offset-3">
+                    <label asp-for="HeadDirection" class="control-label">Head Direction</label>
+                    <p asp-for="HeadDirection" class="form-control">@Html.DisplayFor(model => model.HeadDirection)</p>
+                    <span asp-validation-for="HeadDirection" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*FIELDSET FOR OVERALL IMPRESSION INFORMATION*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Overall Impression</legend>
+            <div class="row">
+                <div class="form-group col-5 offset-2">
+                    <label asp-for="PreservationIndex" class="control-label">Preservation Index</label>
+                    <p asp-for="PreservationIndex" class="form-control">@Html.DisplayFor(model => model.PreservationIndex)</p>
+                </div>
+                <div class="form-group form-check col-3">
+                    <label class="form-check-label">@Html.DisplayNameFor(model => model.Wrapped)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.Wrapped)
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label asp-for="HairColor" class="control-label">Hair Color</label>
+                    <p asp-for="HairColor" class="form-control">@Html.DisplayFor(model => model.HairColor)</p>
+                    <span asp-validation-for="HairColor" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="EstimateAge" class="control-label">Estimate Age</label>
+                    <p asp-for="EstimateAge" class="form-control">@Html.DisplayFor(model => model.EstimateAge)</p>
+                    <span asp-validation-for="EstimateAge" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="AgeMethod" class="control-label">Age Method</label>
+                    <p asp-for="AgeMethod" class="form-control">@Html.DisplayFor(model => model.AgeMethod)</p>
+                    <span asp-validation-for="AgeMethod" class="text-danger"></span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row">
+                <div class="form-group col-10 offset-1">
+                    <label asp-for="BurialSituationNotes" class="control-label">Burial Situation Notes</label>
+                    <textarea asp-for="BurialSituationNotes" class="form-control border border-secondary" rows="8">@Html.DisplayFor(model => model.BurialSituationNotes)</textarea>
+                    <span asp-validation-for="BurialSituationNotes" class="text-danger"></span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row">
+                <div class="form-group form-check col-2 offset-1">
+                    <label class="form-check-label">@Html.DisplayNameFor(model => model.TextileTaken)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.TextileTaken)
+                </div>
+                <div class="form-group form-check col-3">
+                    <label class="form-check-label">@Html.DisplayNameFor(model => model.ArtifactFound)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.ArtifactFound)
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-10 offset-1">
+                    <label asp-for="ArtifactsTakenNotes" class="control-label">Artifact Notes</label>
+                    <textarea asp-for="ArtifactsTakenNotes" class="form-control border border-secondary" rows="8">@Html.DisplayFor(model => model.ArtifactsTakenNotes)</textarea>
+                    <span asp-validation-for="ArtifactsTakenNotes" class="text-danger"></span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row">
+                <div class="form-group form-check col-2 offset-1">
+                    <label class="form-check-label">@Html.DisplayNameFor(model => model.HairTaken)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.HairTaken)
+                </div>
+                <div class="form-group form-check col-3">
+                    <label class="form-check-label">@Html.DisplayNameFor(model => model.SoftTissueTaken)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.SoftTissueTaken)
+                </div>
+                <div class="form-group form-check col-2">
+                    <label class="form-check-label">@Html.DisplayNameFor(model => model.BoneTaken)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.BoneTaken)
+                </div>
+                <div class="form-group form-check col-2">
+                    <label class="form-check-label">@Html.DisplayNameFor(model => model.ToothTaken)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.ToothTaken)
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4 offset-1">
+                    <label asp-for="SampleNumber" class="control-label">Sample Numbers</label>
+                    <p asp-for="SampleNumber" class="form-control">@Html.DisplayFor(model => model.SampleNumber)</p>
+                    <span asp-validation-for="SampleNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-10 offset-1">
+                    <label asp-for="SampleTakenNotes" class="control-label">Samples Taken Notes</label>
+                    <textarea asp-for="SampleTakenNotes" class="form-control border border-secondary" rows="8">@Html.DisplayFor(model => model.SampleTakenNotes)</textarea>
+                    <span asp-validation-for="SampleTakenNotes" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*FIELDSET ON SKULL ANALYSIS AND FEATURES*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Skull</legend>
+            <div class="row">
+                <div class="col-5 offset-1">
+                    <div class="form-group">
+                        <label asp-for="CranialSuture" class="control-label">Cranial Suture</label>
+                        <p asp-for="CranialSuture" class="form-control">@Html.DisplayFor(model => model.CranialSuture)</p>
+                        <span asp-validation-for="CranialSuture" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BasilarSuture" class="control-label">Basilar Suture</label>
+                        <p asp-for="BasilarSuture" class="form-control">@Html.DisplayFor(model => model.BasilarSuture)</p>
+                        <span asp-validation-for="BasilarSuture" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MaximumCranialLength" class="control-label">Maximum Cranial Length</label>
+                        <p asp-for="MaximumCranialLength" class="form-control">@Html.DisplayFor(model => model.MaximumCranialLength)</p>
+                        <span asp-validation-for="MaximumCranialLength" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MaximumCranialBreadth" class="control-label">Maximum Cranial Breadth</label>
+                        <p asp-for="MaximumCranialBreadth" class="form-control">@Html.DisplayFor(model => model.MaximumCranialBreadth)</p>
+                        <span asp-validation-for="MaximumCranialBreadth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ToothAttrition" class="control-label">Tooth Attrition</label>
+                        <p asp-for="ToothAttrition" class="form-control">@Html.DisplayFor(model => model.ToothAttrition)</p>
+                        <span asp-validation-for="ToothAttrition" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ToothEruption" class="control-label">Tooth Eruption</label>
+                        <p asp-for="ToothEruption" class="form-control">@Html.DisplayFor(model => model.ToothEruption)</p>
+                        <span asp-validation-for="ToothEruption" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PreaurSulcus" class="control-label">Preaur Sulcus</label>
+                        <p asp-for="PreaurSulcus" class="form-control">@Html.DisplayFor(model => model.PreaurSulcus)</p>
+                        <span asp-validation-for="PreaurSulcus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ForemanMagnum" class="control-label">Foreman Magnum</label>
+                        <p asp-for="ForemanMagnum" class="form-control">@Html.DisplayFor(model => model.ForemanMagnum)</p>
+                        <span asp-validation-for="ForemanMagnum" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BizygomaticDiameter" class="control-label">Bizygomatic Diameter</label>
+                        <p asp-for="BizygomaticDiameter" class="form-control">@Html.DisplayFor(model => model.BizygomaticDiameter)</p>
+                        <span asp-validation-for="BizygomaticDiameter" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MaximumNasalBreadth" class="control-label">Maximum Nasal Breadth</label>
+                        <p asp-for="MaximumNasalBreadth" class="form-control">@Html.DisplayFor(model => model.MaximumNasalBreadth)</p>
+                        <span asp-validation-for="MaximumNasalBreadth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="InterorbitalBreadth" class="control-label">Interorbital Breadth</label>
+                        <p asp-for="InterorbitalBreadth" class="form-control">@Html.DisplayFor(model => model.InterorbitalBreadth)</p>
+                        <span asp-validation-for="InterorbitalBreadth" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <br />
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr><th colspan="2" class="text-center">Skull Features</th></tr>
+                            <tr>
+                                <th></th>
+                                <th>Ranking</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><label asp-for="Robust" class="control-label">Robust</label></td>
+                                <td>
+                                    <p asp-for="Robust" class="form-control">@Html.DisplayFor(model => model.Robust)</p>
+                                    <span asp-validation-for="Robust" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="SupraorbitalRidges" class="control-label">Supraorbital Ridges</label></td>
+                                <td>
+                                    <p asp-for="SupraorbitalRidges" class="form-control">@Html.DisplayFor(model => model.SupraorbitalRidges)</p>
+                                    <span asp-validation-for="SupraorbitalRidges" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="OrbitEdge" class="control-label">Orbit Edge</label></td>
+                                <td>
+                                    <p asp-for="OrbitEdge" class="form-control">@Html.DisplayFor(model => model.OrbitEdge)</p>
+                                    <span asp-validation-for="OrbitEdge" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="ParietalBossing" class="control-label">Parietal Bossing</label></td>
+                                <td>
+                                    <p asp-for="ParietalBossing" class="form-control">@Html.DisplayFor(model => model.ParietalBossing)</p>
+                                    <span asp-validation-for="ParietalBossing" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="Gonian" class="control-label">Gonian</label></td>
+                                <td>
+                                    <p asp-for="Gonian" class="form-control">@Html.DisplayFor(model => model.Gonian)</p>
+                                    <span asp-validation-for="Gonian" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="NuchalCrest" class="control-label">Nuchal Crest</label></td>
+                                <td>
+                                    <p asp-for="NuchalCrest" class="form-control">@Html.DisplayFor(model => model.NuchalCrest)</p>
+                                    <span asp-validation-for="NuchalCrest" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="ZygomaticCrest" class="control-label">Zygomatic Crest</label></td>
+                                <td>
+                                    <p asp-for="ZygomaticCrest" class="form-control">@Html.DisplayFor(model => model.ZygomaticCrest)</p>
+                                    <span asp-validation-for="ZygomaticCrest" class="text-danger"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="form-group">
+                        @*SKULL*@
+                        <label asp-for="BasionBregmaHeight" class="control-label">Basion Bregma Height</label>
+                        <p asp-for="BasionBregmaHeight" class="form-control">@Html.DisplayFor(model => model.BasionBregmaHeight)</p>
+                        <span asp-validation-for="BasionBregmaHeight" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @*SKULL*@
+                        <label asp-for="BasionNasion" class="control-label">Basion Nasion</label>
+                        <p asp-for="BasionNasion" class="form-control">@Html.DisplayFor(model => model.BasionNasion)</p>
+                        <span asp-validation-for="BasionNasion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @*SKULL*@
+                        <label asp-for="BasionProsthionLength" class="control-label">Basion Prosthion Length</label>
+                        <p asp-for="BasionProsthionLength" class="form-control">@Html.DisplayFor(model => model.BasionProsthionLength)</p>
+                        <span asp-validation-for="BasionProsthionLength" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @*SKULL*@
+                        <label asp-for="NasionProsthion" class="control-label">Nasion Prosthion</label>
+                        <p asp-for="NasionProsthion" class="form-control">@Html.DisplayFor(model => model.NasionProsthion)</p>
+                        <span asp-validation-for="NasionProsthion" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*PELVIS ANALYSIS AND FEATURE INFORMATION*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Pelvis</legend>
+            <div class="row">
+                <div class="col-5 offset-1">
+                    <div class="form-group">
+                        <label asp-for="PubicSymphysis" class="control-label">Pubic Symphasis</label>
+                        <p class="form-control">@Html.DisplayFor(model => model.PubicSymphysis)</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Pelvis Analysis Notes</label>
+                        <textarea class="form-control border border-secondary" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DorsalPitting" class="control-label">Dorsal Pitting</label>
+                        <p class="form-control">@Html.DisplayFor(model => model.DorsalPitting)</p>
+                        <span asp-validation-for="DorsalPitting" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <br /><br />
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr><th colspan="2" class="text-center">Pelvic Features</th></tr>
+                            <tr>
+                                <th></th>
+                                <th>Ranking</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><label asp-for="VentralArc" class="control-label">Ventral Arc</label></td>
+                                <td>
+                                    <p class="form-control">@Html.DisplayFor(model => model.VentralArc)</p>
+                                    <span asp-validation-for="VentralArc" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="SubpubicAngle" class="control-label">Subpubic Angle</label></td>
+                                <td>
+                                    <p class="form-control">@Html.DisplayFor(model => model.SubpubicAngle)</p>
+                                    <span asp-validation-for="SubpubicAngle" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="SciaticNotch" class="control-label">Sciatic Notch</label></td>
+                                <td>
+                                    <p class="form-control"> @Html.DisplayFor(model => model.SciaticNotch)</p>
+                                    <span asp-validation-for="SciaticNotch" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="MedialIpRamus" class="control-label">Medial IP Ramus</label></td>
+                                <td>
+                                    <p class="form-control">@Html.DisplayFor(model => model.MedialIpRamus)</p>
+                                    <span asp-validation-for="MedialIpRamus" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label asp-for="PubicBone" class="control-label">Pubic Bone</label></td>
+                                <td>
+                                    <p class="form-control">@Html.DisplayFor(model => model.PubicBone)</p>
+                                    <span asp-validation-for="PubicBone" class="text-danger"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*FIELDSET FOR LIMB ANALYSIS*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Limb Analysis</legend>
+            <div class="row">
+                <div class="form-group col-10 offset-1">
+                    <label asp-for="EpiphysealUnion" class="control-label">Epiphyseal Union</label>
+                    <p asp-for="EpiphysealUnion" class="form-control">@Html.DisplayFor(model => model.EpiphysealUnion)</p>
+                    <span asp-validation-for="EpiphysealUnion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-5 offset-1">
+                    <label asp-for="FemurHead" class="control-label">Femur Head Diameter</label>
+                    <p asp-for="FemurHead" class="form-control">@Html.DisplayFor(model => model.FemurHead)</p>
+                    <span asp-validation-for="FemurHead" class="text-danger"></span>
+                </div>
+                <div class="form-group col-5">
+                    <label asp-for="HumerusHead" class="control-label">Humerus Head Diameter</label>
+                    <p asp-for="HumerusHead" class="form-control">@Html.DisplayFor(model => model.HumerusHead)</p>
+                    <span asp-validation-for="HumerusHead" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*FIELDSET FOR GENDER INFORMATION AND ESTIMATIONS*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Gender Estimation</legend>
+            <div class="row">
+                <div class="form-group col-10 offset-1">
+                    <label asp-for="GenderBodyCol" class="control-label">Gender</label>
+                    <p asp-for="GenderBodyCol" class="form-control">@Html.DisplayFor(model => model.GenderBodyCol)</p>
+                    <span asp-validation-for="GenderBodyCol" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label asp-for="GenderGe" class="control-label">Gender GE</label>
+                    <p asp-for="GenderGe" class="form-control">@Html.DisplayFor(model => model.GenderGe)</p>
+                    <span asp-validation-for="GenderGe" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="GenderMethod" class="control-label">Gender Method</label>
+                    <p asp-for="GenderMethod" class="form-control">@Html.DisplayFor(model => model.GenderMethod)</p>
+                    <span asp-validation-for="GenderMethod" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="GeFunctionTotal" class="control-label">GE Function Total</label>
+                    <p asp-for="GeFunctionTotal" class="form-control"> @Html.DisplayFor(model => model.GeFunctionTotal)</p>
+                    <span asp-validation-for="GeFunctionTotal" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*FIELDSET FOR STATURE INFORMATION*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Stature Estimation</legend>
+            <div class="row">
+                <div class="form-group col-4 offset-2">
+                    <label asp-for="FemurLength" class="control-label">Femur Length</label>
+                    <p asp-for="FemurLength" class="form-control"> @Html.DisplayFor(model => model.FemurLength)</p>
+                    <span asp-validation-for="FemurLength" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="HumerusLength" class="control-label">Humerus Length</label>
+                    <p asp-for="HumerusLength" class="form-control"> @Html.DisplayFor(model => model.HumerusLength)</p>
+                    <span asp-validation-for="HumerusLength" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4 offset-2">
+                    <label asp-for="TibiaLength" class="control-label">Tibia Length</label>
+                    <p asp-for="TibiaLength" class="form-control">@Html.DisplayFor(model => model.TibiaLength)</p>
+                    <span asp-validation-for="TibiaLength" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4">
+                    <label asp-for="EstimateLivingStature" class="control-label">Estimated Living Height</label>
+                    <p asp-for="EstimateLivingStature" class="form-control">@Html.DisplayFor(model => model.EstimateLivingStature)</p>
+                    <span asp-validation-for="EstimateLivingStature" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+
+        @*PATHOLOGY INFORMATION COLLECTED*@
+        <fieldset class="border border-secondary p-3 m-2">
+            <legend style="width: auto;" class="px-3">Pathology</legend>
+            <div class="row">
+                <div class="col-5 offset-1">
+                    <div class="form-group">
+                        <label asp-for="Osteophytosis" class="control-label">Osteophytosis</label>
+                        <p asp-for="Osteophytosis" class="form-control">@Html.DisplayFor(model => model.Osteophytosis)</p>
+                        <span asp-validation-for="Osteophytosis" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PathologyAnomalies" class="control-label">Pathology Anomalies</label>
+                        <p asp-for="PathologyAnomalies" class="form-control">@Html.DisplayFor(model => model.PathologyAnomalies)</p>
+                        <span asp-validation-for="PathologyAnomalies" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <label class="control-label">Pathology Notes</label>
+                    <textarea class="form-control border border-secondary"></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <br />
     </div>
     <div>
-        <a asp-action="Edit" class="btn btn-sm btn-primary" asp-route-id="@Model.MummyId">Edit Record</a>
-        <a asp-action="ResearchIndex" class="btn btn-sm btn-outline-secondary">Back to List</a>
+        <a asp-action="Edit" class="btn btn btn-primary my-1" asp-route-id="@Model.MummyId">Edit Record</a>
+        <br />
+        <a asp-action="ResearchIndex" class="btn btn-sm my-1 btn-outline-secondary">Back to List</a>
     </div>
 
 </div>
