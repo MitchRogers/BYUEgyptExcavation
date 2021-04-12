@@ -7,8 +7,10 @@
 }
 
 <div class="container">
+
     <br /><br /><br /><br />
     <h1>Index</h1>
+
 
     @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
     {
@@ -526,7 +528,7 @@
         </tbody>
     </table>
     <br />
-    <div page-research="@Model.PageNumberingInfo" page-class="btn btn-primary">
-
+    <div class="text-center mb-5" page-research="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
+         page-classes-enabled="true" page-class-normal="btn btn-sm btn-outline-primary" page-class-selected="btn btn-sm btn-primary text-white">
     </div>
 </div>

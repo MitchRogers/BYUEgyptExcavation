@@ -28,6 +28,7 @@ namespace BYUEgyptExcavation.Controllers
         {
             var filters = new Filters(id);
             ViewBag.Filters = filters;
+            ViewBag.PreservationIndex = _context.Burial.Select(t => t.PreservationIndex).Distinct().ToList();
             //ViewBag.Mummies = _context.Burial.
 
             IQueryable<Burial> query = _context.Burial;

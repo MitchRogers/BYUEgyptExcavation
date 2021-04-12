@@ -1,6 +1,7 @@
 ﻿@*@model IEnumerable<BYUEgyptExcavation.Models.Burial>*@
 
-@model IEnumerable<Burial>
+@model IndexViewModel
+@inject SignInManager<IdentityUser> user;
 
 @{
     ViewData["Title"] = "Mummy List";
@@ -14,8 +15,12 @@
     
 </div>-->
 
+
 <div class="container">
     <br /><br /><br /><br />
+
+
+
     <h1>Index</h1>
     <div class="row" style="margin-top:3rem;">
         <div class="col-sm-2" style="margin-top:3rem; margin-left:1rem; ">
@@ -25,14 +30,18 @@
 
                 <div class="form-group">
                     <label>Preservation Index:</label>
-                    <select name="filter" class="form-control">
+
+
+                    <select name="filter" class="form-control"
+                            asp-items="@(new SelectList(ViewBag.PreservationIndex, "PreservationIndex"))">
                         <option value="all">All</option>
-                        <option value="N/A">N/A</option>
-                        <option value="I">I</option>
-                        <option value="II">II</option>
-                        <option value="III">III</option>
-                        <option value="IV">IV</option>
-                        <option value="V">V</option>
+                        @*<option value="N/A">N/A</option>
+            <option value="I">I</option>
+            <option value="II">II</option>
+            <option value="III">III</option>
+            <option value="IV">IV</option>
+            <option value="V">V</option>*@
+
                     </select>
                 </div>
 
@@ -74,17 +83,34 @@
 
             </form>
 
+
+
+        </div>
+
+
         </div>
 
 
         <div class="container col-sm-9">
-            <p>
-                <a asp-action="Create">Create New</a>
-            </p>
+            <br /><br />
+            <h1>Index</h1>
+
+            @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+            {
+                <p>
+                    <a class="btn btn-secondary btn-sm" asp-action="Create">Create New</a>
+                </p>
+            }
+
             <table id="MummiesTable">
                 <thead>
                     <tr>
                         <th>
+
+                            More Details
+                        </th>
+                        <th>
+
                             Location@*@Html.DisplayNameFor(model => model.BurialId)*@
                         </th>
                         @*<th>
@@ -133,7 +159,9 @@
                             Preservation Index@*@Html.DisplayNameFor(model => model.PreservationIndex)*@
                         </th>
                         <!--<th>
-                            Situation-->
+
+                        Situation-->
+
                         @*@Html.DisplayNameFor(model => model.BurialSituationNotes)*@
                         <!--</th>
                         <th>
@@ -317,16 +345,27 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.EpiphysealUnion)
                             </th>*@
-                        <th>
-                            More Info
-                        </th>
+
+                        @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+                        {
+                            <th>Edit</th>
+                        }
+
+                        @if (user.IsSignedIn(User) && (User.IsInRole("Admin")))
+                        {
+                            <th>Delete</th>
+                        }
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.ListBurial)
                     {
                         <tr>
                             <td>
+                                <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@item.MummyId">Details</a>
+                            </td>
+                            <td>
+
                                 @Html.DisplayFor(modelItem => item.BurialId)
                             </td>
                             @*<td>
@@ -557,19 +596,29 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.EpiphysealUnion)
                                 </td>*@
-                            <td>
-                                @*<a asp-action="Edit" asp-route-id="@item.MummyId">Edit</a> |*@
-                                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.MummyId">More Details</a>
-                                @*<a asp-action="Delete" asp-route-id="@item.MummyId">Delete</a>*@
-                            </td>
+
+                            @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+                            {
+                                <td>
+                                    <a class="btn btn-outline-secondary btn-sm" asp-action="Edit" asp-route-id="@item.MummyId">Edit</a> @*MAKE INTO BUTTONS*@
+                                </td>
+                            }
+
+                            @if (user.IsSignedIn(User) && User.IsInRole("Admin"))
+                            {
+                                <td>
+                                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.MummyId">Delete</a>
+                                </td>
+                            }
                         </tr>
                     }
                 </tbody>
             </table>
             <br />
-            @*<div page-info="@Model.PageNumberingInfo" page-btn="btn btn-primary">
+            <div class="text-center mb-5" page-research="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
+                 page-classes-enabled="true" page-class-normal="btn btn-sm btn-outline-primary" page-class-selected="btn btn-sm btn-primary text-white">
+            </div>
 
-                </div>*@
         </div>
     </div>
 </div>
