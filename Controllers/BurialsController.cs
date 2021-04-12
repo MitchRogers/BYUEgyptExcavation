@@ -28,7 +28,8 @@ namespace BYUEgyptExcavation.Controllers
             var filters = new Filters(id);
             ViewBag.Filters = filters;
             ViewBag.PreservationIndex = _context.Burial.Select(t => t.PreservationIndex).Distinct().ToList();
-            ViewBag.MummyId = _context.Burial.Select(t => t.MummyId).Distinct().ToList();
+            ViewBag.YearFound = _context.Burial.Select(t => t.YearFound).Distinct().ToList();
+            ViewBag.BurialId = _context.Burial.Select(t => t.BurialId).Distinct().ToList();
             //ViewBag.Mummies = _context.Burial.
 
             IQueryable<Burial> query = _context.Burial;
@@ -53,10 +54,19 @@ namespace BYUEgyptExcavation.Controllers
                 query = query.Where(t => t.HairColor == filters.HairColor);
             }
 
-            if (filters.HasMummyId)
+            if (filters.HasYearFound)
             {
-                query = query.Where(t => t.MummyId.ToString() == filters.MummyId);
+                query = query.Where(t => t.YearFound == filters.YearFound);
             }
+
+            if (filters.HasBurialId)
+            {
+                query = query.Where(t => t.BurialId == filters.BurialId);
+            }
+
+
+
+
 
             var mummies = query.OrderBy(t => t.BurialId).ToList();
             int pageSize = 10;
