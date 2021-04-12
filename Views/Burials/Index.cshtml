@@ -1,6 +1,6 @@
 ﻿@*@model IEnumerable<BYUEgyptExcavation.Models.Burial>*@
 
-@model IEnumerable<Burial>
+@model IndexViewModel
 @inject SignInManager<IdentityUser> user;
 
 @{
@@ -28,6 +28,7 @@
             <form asp-action="Filter" method="post">
 
                 <div class="form-group">
+                    <label>Preservation Index:</label>
                     <select name="filter" class="form-control"
                             asp-items="@(new SelectList(ViewBag.PreservationIndex, "PreservationIndex"))">
                         <option value="all">All</option>
@@ -342,7 +343,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.ListBurial)
                     {
                         <tr>
                             <td>
@@ -597,9 +598,9 @@
                 </tbody>
             </table>
             <br />
-            @*<div page-info="@Model.PageNumberingInfo" page-btn="btn btn-primary">
-
-                </div>*@
+            <div class="text-center mb-5" page-research="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
+                 page-classes-enabled="true" page-class-normal="btn btn-sm btn-outline-primary" page-class-selected="btn btn-sm btn-primary text-white">
+            </div>
         </div>
     </div>
 </div>

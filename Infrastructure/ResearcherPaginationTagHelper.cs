@@ -26,6 +26,9 @@ namespace BYUEgyptExcavation.Infrastructure
         public PageNumberingInfo PageResearch { get; set; }
 
         public string PageClass { get; set; }
+        public bool PageClassesEnabled { get; set; } = false;
+        public string PageClassNormal { get; set; } 
+        public string PageClassSelected { get; set; }
 
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -39,7 +42,12 @@ namespace BYUEgyptExcavation.Infrastructure
                 TagBuilder individualTag = new TagBuilder("a");
 
                 individualTag.Attributes["href"] = "/Burials/ResearchIndex/?pagenum=" + i;
-                individualTag.AddCssClass(PageClass);
+                if (PageClassesEnabled)
+                {
+                    individualTag.AddCssClass(PageClass);
+                    individualTag.AddCssClass(i == PageResearch.CurrentPage ? PageClassSelected : PageClassNormal);
+                }
+
                 individualTag.InnerHtml.Append(i.ToString());
 
                 finishedTag.InnerHtml.AppendHtml(individualTag);

@@ -7,15 +7,14 @@
 }
 
 <div class="container">
-    <br /><br />
-    <h1>Index</h1>
+    <br /><br /><br /><br /><br /><br />
 
-   @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
-   {
+    @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+    {
         <p>
             <a class="btn btn-secondary btn-sm" asp-action="Create">Create New</a>
         </p>
-   }
+    }
     <table id="MummiesTable">
         <thead>
             <tr>
@@ -526,7 +525,7 @@
         </tbody>
     </table>
     <br />
-    <div page-research="@Model.PageNumberingInfo" page-class="btn btn-primary">
-
+    <div class="text-center mb-5" page-research="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
+         page-classes-enabled="true" page-class-normal="btn btn-sm btn-outline-primary" page-class-selected="btn btn-sm btn-primary text-white">
     </div>
 </div>
