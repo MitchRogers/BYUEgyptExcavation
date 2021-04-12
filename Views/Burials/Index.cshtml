@@ -1,6 +1,6 @@
 ﻿@*@model IEnumerable<BYUEgyptExcavation.Models.Burial>*@
 
-@model IndexViewModel
+@model IEnumerable<Burial>
 @inject SignInManager<IdentityUser> user;
 
 @{
@@ -343,7 +343,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.ListBurial)
+                    @foreach (var item in Model)
                     {
                         <tr>
                             <td>
@@ -598,9 +598,9 @@
                 </tbody>
             </table>
             <br />
-            <div class="text-center mb-5" page-research="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
-                 page-classes-enabled="true" page-class-normal="btn btn-sm btn-outline-primary" page-class-selected="btn btn-sm btn-primary text-white">
-            </div>
+            @*<div page-info="@Model.PageNumberingInfo" page-btn="btn btn-primary">
+
+                </div>*@
         </div>
     </div>
 </div>

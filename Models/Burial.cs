@@ -17,9 +17,11 @@ namespace BYUEgyptExcavation.Models
         public string BurialLocationNs { get; set; }
         public double LowPairNs { get; set; }
         public double HighPairNs { get; set; }
+        [Required]
         public string BurialLocationEw { get; set; }
         public double LowPairEw { get; set; }
         public double HighPairEw { get; set; }
+        [Required]
         public string BurialSubplot { get; set; }
         public double BurialDepth { get; set; }
         public double SouthToHead { get; set; }
@@ -38,10 +40,15 @@ namespace BYUEgyptExcavation.Models
         public bool TextileTaken { get; set; }
         public bool ArtifactFound { get; set; }
         public bool Wrapped { get; set; }
+        [Required]
         public string HeadDirection { get; set; }
+        [Required]
         public string YearFound { get; set; }
+        [Required]
         public string MonthFound { get; set; }
+        [Required]
         public string DayFound { get; set; }
+        [Required]
         public string UserInitials { get; set; }
         public string GenderGe { get; set; }
         public string GenderMethod { get; set; }
