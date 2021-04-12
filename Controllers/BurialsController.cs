@@ -63,10 +63,10 @@ namespace BYUEgyptExcavation.Controllers
 
             {
                 Burial = mummies.Skip((pageNum - 1) * pageSize).Take(pageSize),
-            //    //actual data set being returned
-            //    Burial = (await _context.Burial
-            //    .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
-            //    .ToListAsync()),
+                //    //actual data set being returned
+                //    Burial = (await _context.Burial
+                //    .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
+                //    .ToListAsync()),
 
                 //    /*.Skip((pageNum - 1) * pageSize)
                 //    .Take(pageSize)*/
@@ -81,7 +81,7 @@ namespace BYUEgyptExcavation.Controllers
                     TotalNumItems = mummies.Count()
                 }
 
-            });
+            }) ;
 
 
         }
