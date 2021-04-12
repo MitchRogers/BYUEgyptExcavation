@@ -10927,3 +10927,11 @@ header.masthead {
     .demo:hover {
         opacity: 1;
     }
+
+.logo-image {
+    width: 46px;
+    height: 46px;
+    border-radius: 0%;
+    overflow: hidden;
+    margin-top: -6px;
+}
