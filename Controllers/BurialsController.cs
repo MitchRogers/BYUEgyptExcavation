@@ -28,6 +28,7 @@ namespace BYUEgyptExcavation.Controllers
             var filters = new Filters(id);
             ViewBag.Filters = filters;
             ViewBag.PreservationIndex = _context.Burial.Select(t => t.PreservationIndex).Distinct().ToList();
+            ViewBag.MummyId = _context.Burial.Select(t => t.MummyId).Distinct().ToList();
             //ViewBag.Mummies = _context.Burial.
 
             IQueryable<Burial> query = _context.Burial;
@@ -50,6 +51,11 @@ namespace BYUEgyptExcavation.Controllers
             if (filters.HasHairColor)
             {
                 query = query.Where(t => t.HairColor == filters.HairColor);
+            }
+
+            if (filters.HasMummyId)
+            {
+                query = query.Where(t => t.MummyId.ToString() == filters.MummyId);
             }
 
             var mummies = query.OrderBy(t => t.BurialId).ToList();
