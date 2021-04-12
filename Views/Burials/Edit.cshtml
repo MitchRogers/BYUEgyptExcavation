@@ -38,7 +38,7 @@
                   <div class="form-group col-3">
                       <label asp-for="MonthFound" class="control-label">Month Found</label>
                       <select asp-for="MonthFound" class="form-control">
-                          <option value=""></option>
+                          <option value="N/A"></option>
                           <option value="Jan">January</option>
                           <option value="Feb">February</option>
                           <option value="Mar">March</option>
@@ -57,7 +57,7 @@
                   <div class="form-group col-2">
                       <label asp-for="DayFound" class="control-label">Day Found</label>
                       <select asp-for="DayFound" class="form-control">
-                          <option value=""></option>
+                          <option value="0"></option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -217,8 +217,9 @@
               <fieldset class="border border-secondary p-3 m-2">
                   <legend style="width: auto;" class="px-3">Overall Impression</legend>
                   <div class="row">
-                      <div class="form-group col-5 offset-2">
+                      <div class="form-group col-5 offset-2"> 
                           <label asp-for="PreservationIndex" class="control-label"> Preservation Index</label> &nbsp;&nbsp;&nbsp;
+                          None @Html.RadioButtonFor(Model => Model.PreservationIndex, "N/A")
                           I @Html.RadioButtonFor(Model => Model.PreservationIndex, "I") &nbsp;&nbsp;&nbsp;
                           II @Html.RadioButtonFor(Model => Model.PreservationIndex, "II") &nbsp;&nbsp;&nbsp;
                           III @Html.RadioButtonFor(Model => Model.PreservationIndex, "III") &nbsp;&nbsp;&nbsp;
