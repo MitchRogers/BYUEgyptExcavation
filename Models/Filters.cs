@@ -21,6 +21,12 @@ namespace BYUEgyptExcavation.Models
             //AgeAtDeath = filters[7];
         }
 
+        public string GetFilterString()
+        {
+            return FilterString;
+            
+        }
+
         public string FilterString { get; }
         //public string Depth { get; }
         //public string RemainsLength { get; }
