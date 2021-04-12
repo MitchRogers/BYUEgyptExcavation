@@ -11,7 +11,6 @@ using BYUEgyptExcavation.Models.ViewModels;
 
 using Microsoft.AspNetCore.Authorization;
 
-
 namespace BYUEgyptExcavation.Controllers
 {
     public class BurialsController : Controller

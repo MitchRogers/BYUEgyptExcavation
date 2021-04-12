@@ -11,6 +11,8 @@ namespace BYUEgyptExcavation.Models.ViewModels
 
         public PageNumberingInfo PageNumberingInfo { get; set; }
 
+        public Filters FilteringData { get; set; }
+
     }
 
 }

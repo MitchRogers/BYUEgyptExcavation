@@ -108,9 +108,12 @@ namespace BYUEgyptExcavation
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(Filters.GetFilterString()
-                   // )
-                
+                endpoints.MapControllerRoute("filtering",
+                    "Burial/Index/{id}",
+                    new { Controller = "Burial", action = "Index" }
+
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
