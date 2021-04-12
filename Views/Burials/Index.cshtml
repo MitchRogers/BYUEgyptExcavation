@@ -36,11 +36,11 @@
                             asp-items="@(new SelectList(ViewBag.PreservationIndex, "PreservationIndex"))">
                         <option value="all">All</option>
                         @*<option value="N/A">N/A</option>
-            <option value="I">I</option>
-            <option value="II">II</option>
-            <option value="III">III</option>
-            <option value="IV">IV</option>
-            <option value="V">V</option>*@
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+                <option value="V">V</option>*@
 
                     </select>
                 </div>
@@ -77,7 +77,14 @@
                     </select>
                 </div>
 
-                <button type="submit"  @*asp-route-filter="all-all-all-all"*@ class="btn btn-primary">Filter</button>
+                <div class="form-group">
+                    <label>Mummy ID:</label>
+                    <select name="filter" class="form-control" asp-items="@(new SelectList(ViewBag.MummyId, "MummyId"))">
+                        <option value="all">All</option>
+                    </select>
+                </div>
+
+                <button type="submit" @*asp-route-filter="all-all-all-all"*@ class="btn btn-primary">Filter</button>
 
                 <a asp-action="Index" asp-route-id="" class="btn btn-primary">Clear</a>
 
