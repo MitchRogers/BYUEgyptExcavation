@@ -6,6 +6,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BYUEgyptExcavation.Models
 {
+
+    //adds a few extra pieces of information to the User class, this is stored in our user database.
     public class User
     {
         [Required]

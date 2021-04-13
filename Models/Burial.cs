@@ -6,6 +6,8 @@ using System.ComponentModel.DataAnnotations;
 // If you have enabled NRTs for your project, then un-comment the following line: 
 // #nullable disable
 
+
+//created through scafofolding, has some required features, but allows us to reference our data in the program.
 namespace BYUEgyptExcavation.Models
 {
     public partial class Burial

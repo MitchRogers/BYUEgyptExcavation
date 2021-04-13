@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+//allows for the Roles to be edited in the RoleController.
 namespace BYUEgyptExcavation.Models
 {
     public class RoleEdit
