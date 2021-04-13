@@ -10,8 +10,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BYUEgyptExcavation.Controllers
 {
+    //role controller to make distinct roles of admin and researcher
     public class RoleController : Controller
     {
+        //initializing Rolemanager and user manager
         private RoleManager<IdentityRole> roleManager;
         private UserManager<IdentityUser> userManager;
         public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<IdentityUser> userMrg)
@@ -20,18 +22,22 @@ namespace BYUEgyptExcavation.Controllers
             userManager = userMrg;
         }
 
+        //get admin index view
         [Authorize(Roles = "Admin")]
         public ViewResult Index() => View(roleManager.Roles);
 
+        //error response
         private void Errors(IdentityResult result)
         {
             foreach (IdentityError error in result.Errors)
                 ModelState.AddModelError("", error.Description);
         }
 
+        //create view
         [Authorize(Roles = "Admin")]
         public IActionResult Create() => View();
 
+        //create post method for
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create([Required] string name)
@@ -47,6 +53,7 @@ namespace BYUEgyptExcavation.Controllers
             return View(name);
         }
 
+        //delete action only for admins
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
@@ -65,6 +72,7 @@ namespace BYUEgyptExcavation.Controllers
             return View("Index", roleManager.Roles);
         }
 
+        //update view
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id)
         {
@@ -84,6 +92,7 @@ namespace BYUEgyptExcavation.Controllers
             });
         }
 
+        //update method to post changes
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(RoleModification model)

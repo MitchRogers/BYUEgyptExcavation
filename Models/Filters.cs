@@ -29,7 +29,7 @@ namespace BYUEgyptExcavation.Models
             //string newChar = "/";
             //BurialId = BurialId.Replace(oldChar, newChar);
 
-
+            
         }
 
         //declaring the attributes of the filter, these are the columns in our database that we want to be able to filter by.

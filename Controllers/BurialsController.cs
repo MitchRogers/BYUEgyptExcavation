@@ -13,8 +13,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BYUEgyptExcavation.Controllers
 {
+    //Burials Controller used to control the burials class and context class
     public class BurialsController : Controller
     {
+        //initialize context class
         private readonly BYUEgyptExcavationsFagelGamousContext _context;
 
         public BurialsController(BYUEgyptExcavationsFagelGamousContext context)
@@ -22,18 +24,20 @@ namespace BYUEgyptExcavation.Controllers
             _context = context;
         }
 
-        // GET: Burials
+        // GET: Burials - id for filtering and pageNum for pagination
         public IActionResult Index(string id, int pageNum = 1)
         {
+            //store filters in a variable and viewBag to display. Store the dropdown lists in viewBags
             var filters = new Filters(id);
             ViewBag.Filters = filters;
             ViewBag.PreservationIndex = _context.Burial.Select(t => t.PreservationIndex).Distinct().ToList();
             ViewBag.YearFound = _context.Burial.Select(t => t.YearFound).Distinct().ToList();
             ViewBag.BurialId = _context.Burial.Select(t => t.BurialId).Distinct().ToList();
-            //ViewBag.Mummies = _context.Burial.
 
+            //make iqueryable variable
             IQueryable<Burial> query = _context.Burial;
 
+            //filter if they contain the field
             if (filters.HasPreservationIndex)
             {
                 query = query.Where(t => t.PreservationIndex == filters.PreservationIndex);
@@ -59,6 +63,7 @@ namespace BYUEgyptExcavation.Controllers
                 query = query.Where(t => t.YearFound == filters.YearFound);
             }
 
+
             /*if (filters.HasBurialId)
             {
                 query = query.Where(t => t.BurialId == filters.BurialId);
@@ -68,12 +73,12 @@ namespace BYUEgyptExcavation.Controllers
 
 
 
-            var mummies = query.OrderBy(t => t.MummyId).ToList();
+
+            var mummies = query.OrderBy(t => t.BurialId).ToList();
             int pageSize = 10;
             int skip = ((pageNum - 1) * pageSize);
 
-            //return View(mummies);
-
+            //return index view model with pagination
             return View(new IndexViewModel
 
             {
@@ -95,10 +100,7 @@ namespace BYUEgyptExcavation.Controllers
                     //for filtering, this needs to be different than just the total count.
                     TotalNumItems = mummies.Count()
                 }
-
             }) ;
-
-
         }
 
         [HttpPost]
@@ -107,7 +109,6 @@ namespace BYUEgyptExcavation.Controllers
             string id = string.Join('-', filter);
             return RedirectToAction("Index", new { ID = id });
         }
-
 
         //// GET: Researcher Burials
         ////[Authorize(Roles = "Research, Admin")]
@@ -138,11 +139,9 @@ namespace BYUEgyptExcavation.Controllers
         //        }
 
         //    });
-
-
         //}
 
-        // GET: Burials/Details/5
+        // GET: Burials/Details/5 - Details page
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -160,7 +159,7 @@ namespace BYUEgyptExcavation.Controllers
             return View(burial);
         }
 
-        // GET: Burials/Create
+        // GET: Burials/Create - create page
         public IActionResult Create()
         {
             return View();
@@ -182,7 +181,7 @@ namespace BYUEgyptExcavation.Controllers
             return View(burial);
         }
 
-        // GET: Burials/Edit/5
+        // GET: Burials/Edit/5 - get edit page
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -198,7 +197,7 @@ namespace BYUEgyptExcavation.Controllers
             return View(burial);
         }
 
-        // POST: Burials/Edit/5
+        // POST: Burials/Edit/5 - post edit page
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

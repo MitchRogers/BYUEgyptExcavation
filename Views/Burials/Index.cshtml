@@ -17,8 +17,8 @@
     <form asp-action="Filter" method="post">
 
         @*granting access to filter based on persmission*@
-        @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
-        {
+        @*@if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+        {*@
             <div class="row col-12" style="margin-top:3rem;">
 
                 @*filter options for admin permissions*@
@@ -44,7 +44,7 @@
                     <label>Gender:</label>
                     <select name="filter" class="form-control">
                         <option value="all">All</option>
-                        <option value="Unknown">Unknown</option>
+                        <option value="Undetermined">Undetermined</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -69,12 +69,12 @@
                     </select>
                 </div>
 
-                <div class="form-group col-sm-2">
+                @*<div class="form-group col-sm-2">
                     <label>Burial ID:</label>
                     <select name="filter" class="form-control" asp-items="@(new SelectList(ViewBag.BurialId, "BurialId"))">
                         <option value="all">All</option>
                     </select>
-                </div>
+                </div>*@
 
                 <div class="row col-4 offset-5">
                     <button type="submit" @*asp-route-filter="all-all-all-all"*@ class="btn btn-sm btn-primary px-3 mx-2">Filter</button>
@@ -82,10 +82,10 @@
                 </div>
             </div>
         }
-        else
-        {
+        <!--else
+        {-->
             @*filter options for user permissions*@
-            <div class="row col-11 offset-1" style="margin-top:3rem;">
+            <!--<div class="row col-11 offset-1" style="margin-top:3rem;">
                 <div class="form-group col-lg-3">
                     <label>Preservation Index:</label>
                     <select name="filter" class="form-control"
@@ -134,11 +134,11 @@
                 </div>
 
                 <div class="row col-4 offset-4">
-                    <button type="submit" @*asp-route-filter="all-all-all-all"*@ class="btn btn-sm btn-primary px-3 mx-2">Filter</button>
+                    <button type="submit"--> @*asp-route-filter="all-all-all-all"*@ <!--class="btn btn-sm btn-primary px-3 mx-2">Filter</button>
                     <a asp-action="Index" asp-route-id="" class="btn btn-sm btn-secondary px-3 mx-2">Clear</a>
                 </div>
             </div>
-        }
+        }-->
     </form>
     <br />
 
