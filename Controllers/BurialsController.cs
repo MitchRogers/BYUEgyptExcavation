@@ -59,10 +59,10 @@ namespace BYUEgyptExcavation.Controllers
                 query = query.Where(t => t.YearFound == filters.YearFound);
             }
 
-            if (filters.HasBurialId)
-            {
-                query = query.Where(t => t.BurialId == filters.BurialId);
-            }
+            //if (filters.HasBurialId)
+            //{
+            //    query = query.Where(t => t.BurialId == filters.BurialId);
+            //}
 
 
 
