@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BYUEgyptExcavation.Models
 {
+    //Allows for the roles to be modified.
     public class RoleModification
     {
         [Required]
