@@ -63,12 +63,15 @@ namespace BYUEgyptExcavation.Controllers
                 query = query.Where(t => t.YearFound == filters.YearFound);
             }
 
-            if (filters.HasBurialId)
-            {
-                query = query.Where(t => t.BurialId == filters.BurialId);
-            }
+            //if (filters.HasBurialId)
+            //{
+            //    query = query.Where(t => t.BurialId == filters.BurialId);
+            //}
 
-            //order the query and out put it, set up pagination for 10 items per page
+
+
+
+
             var mummies = query.OrderBy(t => t.BurialId).ToList();
             int pageSize = 10;
             int skip = ((pageNum - 1) * pageSize);

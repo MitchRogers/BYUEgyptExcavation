@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script>
+    //js function that generates full burial ID based on user inputs of specific information
     function BuildBurialID() {
         var locNS = document.getElementById("buriallocationns").value;
         var lowpairNS = document.getElementById("lowpairns").value;
@@ -19,6 +20,7 @@
         var burialNumber = document.getElementById("burialnumber").value;
         var burialId = document.getElementById("burialid");
 
+        //concatenate for output
         var output = locNS + " " + lowpairNS + "/" + highpairNS + " " +
             locEW + " " + lowpairEW + "/" + highpairEW + " " +
             burialArea + " #" + burialNumber;
@@ -33,6 +35,7 @@
     <h3 class="text-center">Body Analysis Chart</h3> 
     <br /><br />
 
+          @*form to create a new record*@ 
           <form asp-action="Create">
               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -238,7 +241,7 @@
               <fieldset class="border border-secondary p-3 m-2">
                   <legend style="width: auto;" class="px-3">Overall Impression</legend>
                   <div class="row">
-                      <div class="form-group col-5 offset-2">
+                      <div class="form-group col-6 offset-2">
                           <label asp-for="PreservationIndex" class="control-label"> Preservation Index</label> &nbsp;&nbsp;&nbsp;
                           I @Html.RadioButtonFor(Model => Model.PreservationIndex, "I") &nbsp;&nbsp;&nbsp;
                           II @Html.RadioButtonFor(Model => Model.PreservationIndex, "II") &nbsp;&nbsp;&nbsp;
@@ -247,7 +250,7 @@
                           V @Html.RadioButtonFor(Model => Model.PreservationIndex, "V") &nbsp;&nbsp;&nbsp;
                           <span asp-validation-for="PreservationIndex" class="text-danger"></span>
                       </div>
-                      <div class="form-group form-check col-3">
+                      <div class="form-group form-check col-2 offset-1">
                           <label class="form-check-label">
                               @Html.DisplayNameFor(model => model.Wrapped) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input class="form-check-input" asp-for="Wrapped" />
                           </label>
@@ -753,8 +756,6 @@
                   <input type="submit" value="Create" class="btn btn-primary py-2 px-xl-5" />
               </div>
           </form>
-
-
 
     <div class="text-center"> 
         <a asp-action="Index" class="btn btn-sm btn-outline-secondary">Back to List</a>
