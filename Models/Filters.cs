@@ -20,11 +20,13 @@ namespace BYUEgyptExcavation.Models
 
             //sets a specific attribute equal to each position of the array
             PreservationIndex = filters[0];
+            string oldChar = "%2F";
+            string newChar = "/";
+            PreservationIndex = PreservationIndex.Replace(oldChar, newChar);
             HeadDirection = filters[1];
             Gender = filters[2];
             HairColor = filters[3];
-            YearFound = filters[4];
-            
+            YearFound = filters[4];         
 
 
         }
