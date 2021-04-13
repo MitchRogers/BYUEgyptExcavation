@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace BYUEgyptExcavation.Controllers
 {
+    //home controller for the index page and gallery
     public class HomeController : Controller
     {
-        
+        //initialize the home controller
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -19,7 +20,7 @@ namespace BYUEgyptExcavation.Controllers
             
             _logger = logger;
         }
-
+        //index and gallery views used
         public IActionResult Index()
         {
             return View();

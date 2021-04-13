@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BYUEgyptExcavation.Controllers
 {
+    //admin controller to manage researchers output admin functions
     public class AdminController : Controller
     {
+        //setting up user security and password hasher
         private UserManager<IdentityUser> _userManager;
         private IPasswordHasher<IdentityUser> _passwordHasher;
         public AdminController(UserManager<IdentityUser> usermanager, IPasswordHasher<IdentityUser> passwordHash)
@@ -19,15 +21,17 @@ namespace BYUEgyptExcavation.Controllers
             _passwordHasher = passwordHash;
         }
 
+        //index only for admin
         [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View(_userManager.Users);
         }
-
+        
         [Authorize(Roles = "Admin")]
         public ViewResult Create() => View();
 
+        //post to create a researcher user
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(User user)
@@ -53,6 +57,7 @@ namespace BYUEgyptExcavation.Controllers
             return View(user);
         }
 
+        //update get request
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id)
         {
@@ -63,6 +68,7 @@ namespace BYUEgyptExcavation.Controllers
                 return RedirectToAction("Index");
         }
 
+        //update post method to edit users
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(string id, string email, string password)
@@ -94,12 +100,14 @@ namespace BYUEgyptExcavation.Controllers
             return View(user);
         }
 
+        //error response
         private void Errors(IdentityResult result)
         {
             foreach (IdentityError error in result.Errors)
                 ModelState.AddModelError("", error.Description);
         }
 
+        //delete post action that only an admin can do
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
