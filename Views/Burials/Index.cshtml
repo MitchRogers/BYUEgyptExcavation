@@ -25,6 +25,7 @@
     <div class="row" style="margin-top:3rem;">
         <div class="col-sm-2" style="margin-top:3rem; margin-left:1rem; ">
 
+            @*Add Filters so you can search for specific records*@
 
             <form asp-action="Filter" method="post">
 
@@ -77,15 +78,14 @@
                     </select>
                 </div>
 
-                @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
-                {
-                    <div class="form-group">
-                        <label>Burial ID:</label>
-                        <select name="filter" class="form-control" asp-items="@(new SelectList(ViewBag.BurialId, "BurialId"))">
-                            <option value="all">All</option>
-                        </select>
-                    </div>
-                }
+                
+                <div class="form-group">
+                    <label>Burial ID:</label>
+                    <select name="filter" class="form-control" asp-items="@(new SelectList(ViewBag.BurialId, "BurialId"))">
+                        <option value="all">All</option>
+                    </select>
+                </div>
+                
                 
 
 
@@ -100,6 +100,7 @@
 
         </div>
 
+        @*Show the list of burials but only the important information. The table is so large that we decided to only show some of the data, leaving it to the edit and view features to show all details of a burial*@
 
         <div class="container col-sm-9">
             
@@ -623,6 +624,8 @@
                 </tbody>
             </table>
             <br />
+
+            @*Insert the pagination for the table*@
             <div class="text-center mb-5" page-info="@Model.PageNumberingInfo" page-class="btn btn-sm btn-outline-primary mx-1"
                  page-classes-enabled="true" page-class-normal="btn btn-sm btn-outline-primary" page-class-selected="btn btn-sm btn-primary text-white">
             </div>

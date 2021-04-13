@@ -12,6 +12,8 @@ using BYUEgyptExcavation.Models;
 
 namespace BYUEgyptExcavation.Infrastructure
 {
+
+    //build a div with a page-info attribute
     [HtmlTargetElement("div", Attributes = "page-info")]
     public class PaginationTagHelper : TagHelper
     {
@@ -21,6 +23,7 @@ namespace BYUEgyptExcavation.Infrastructure
             urlInfo = uhf;
         }
 
+        //build the view context used in making tags dynamic
         [HtmlAttributeNotBound]
         [ViewContext]
         public ViewContext ViewContext { get; set; }
@@ -30,22 +33,26 @@ namespace BYUEgyptExcavation.Infrastructure
 
         public string Filter { get; set; }
 
+        //build a dictionary for page numbering
         [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
         public Dictionary<string, object> KeyValuePairs { get; set; } = new Dictionary<string, object>();
 
-
+        //these are used to hopefully highlight the filters
         public string PageClass { get; set; }
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
 
-
+        //build a process class that will allow us to build our own tags
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            //create one div tag to hold all the page information
+
             IUrlHelper urlHelper = urlInfo.GetUrlHelper(ViewContext);
 
             TagBuilder finishedTag = new TagBuilder("div");
 
+            //use a loop for the number of pages to make multiple a tags within the div. These will be the actual buttons.
             for (int i = 1; i <= PageInfo.NumPages; i++)
             {
                 TagBuilder individualTag = new TagBuilder("a");
@@ -60,13 +67,12 @@ namespace BYUEgyptExcavation.Infrastructure
                 }
 
                 
-                //individualTag.Attributes["href"] = "/Burials/?pagenum=" + i;
-                
                 individualTag.InnerHtml.Append(i.ToString());
 
                 finishedTag.InnerHtml.AppendHtml(individualTag);
             }
 
+            //output the finished tag
             output.Content.AppendHtml(finishedTag.InnerHtml);
         }
     }
