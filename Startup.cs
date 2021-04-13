@@ -28,29 +28,28 @@ namespace BYUEgyptExcavation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //the first of two connection strings, this one connects the program to our user database.
             services.AddDbContext<ApplicationDbContext>(options =>
-        // options.UseSqlite(
-        options.UseSqlServer(
-            Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
+            //allows for the IdentityUser class (built by Identity Scaffolding) to be referenced and used throughout the program
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            
+            //adds controllers and views
             services.AddControllersWithViews();
+            
+            //allows the use of RazorPages
             services.AddRazorPages();
 
+
+            //2nd connection string connecting program to the Burial database
             services.AddDbContext<BYUEgyptExcavationsFagelGamousContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BYUEgyptDB")));
 
-            //services.AddAuthentication()
-            //     .AddGoogle(options =>
-            //     {
-            //         IConfigurationSection googleAuthNSection =
-            //         Configuration.GetSection("Authentication:Google");
-            //         options.ClientId = "643984651422-lc3negko76kmc7l62a9occ1rol4g72gh.apps.googleusercontent.com";
-            //         options.ClientSecret = "PJDylqDi9hvjrk4a2aayp_r";
-            //     });
-
-
+            
+            //lots of info created by the identity scaffolding
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
@@ -72,6 +71,7 @@ namespace BYUEgyptExcavation
                 options.User.RequireUniqueEmail = false;
             });
 
+            //allows the program to pass a cookie which allows the user to go throughout the program
             services.ConfigureApplicationCookie(options =>
             {
                 // Cookie settings
@@ -106,6 +106,8 @@ namespace BYUEgyptExcavation
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+            //configuring endpoints
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("filtering",

@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
+
+//this is the ContextDb for the Burials database, and allows us to display the information.
 namespace BYUEgyptExcavation.Models
 {
     public partial class BYUEgyptExcavationsFagelGamousContext : DbContext

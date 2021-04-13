@@ -3,41 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+//this file allows for the Mummy List page to be filtered.
 namespace BYUEgyptExcavation.Models
 {
     public class Filters
     {
         public Filters(string filterstring)
         {
+            //declaring the FilterString which is passed in by the Burial Controller, if it is null, then it is automatically sent to "all-"
             FilterString = filterstring ?? "all-all-all-all-all-all";
+
+            //spliting the FilterString into an array, split by the "-" character
             string[] filters = FilterString.Split('-');
-            
-            
-            
+
+
+            //sets a specific attribute equal to each position of the array
             PreservationIndex = filters[0];
             HeadDirection = filters[1];
             Gender = filters[2];
-            HairColor = filters[3]; 
+            HairColor = filters[3];
             YearFound = filters[4];
             BurialId = filters[5];
 
-            
+
         }
 
+        //declaring the attributes of the filter, these are the columns in our database that we want to be able to filter by.
         public string BurialId { get; }
         public string FilterString { get; }
-        //public string Depth { get; }
-        //public string RemainsLength { get; }
         public string PreservationIndex { get; }
         public string HeadDirection { get; }
         public string YearFound { get; }
         public string Gender { get; }
         public string HairColor { get; }
 
-        //public string AgeAtDeath { get; }
 
-        //public bool HasDepth => Depth.ToLower() != "all";
-        //public bool HasRemainsLength => RemainsLength.ToLower() != "all";
+        //sets the boolean to true if there is a value in the reference after the lamda is not all.
         public bool HasPreservationIndex => PreservationIndex.ToLower() != "all";
 
         public bool HasBurialId => BurialId.ToLower() != "all";
@@ -45,20 +47,6 @@ namespace BYUEgyptExcavation.Models
         public bool HasYearFound => YearFound.ToLower() != "all";
         public bool HasGender => Gender.ToLower() != "all";
         public bool HasHairColor => HairColor.ToLower() != "all";
-
-        //public bool HasAgeAtDeath => AgeAtDeath.ToLower() != "all";
-
-        //public static Dictionary<string, string> DueFilterValues =>
-        //    new Dictionary<string, string>
-        //    {
-        //        {"future", "Future" },
-        //        {"past", "Past" },
-        //        {"today", "Today" }
-        //    };
-
-        //public bool IsPast => Due.ToLower() == "past";
-        //public bool IsFuture => Due.ToLower() == "future";
-        //public bool IsToday => Due.ToLower() == "today";
     }
 }
 
