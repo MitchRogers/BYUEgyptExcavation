@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace BYUEgyptExcavation.Models.ViewModels
 {
+    //page numbering information
     public class PageNumberingInfo
     {
         public int NumItemsPerPage { get; set;}
@@ -12,7 +13,6 @@ namespace BYUEgyptExcavation.Models.ViewModels
         public int TotalNumItems { get; set; }
 
         //calculate the Number of Pager
-
         public int NumPages => (int)(Math.Ceiling((decimal)TotalNumItems / NumItemsPerPage));
 
     }

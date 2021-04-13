@@ -9,6 +9,7 @@ using BYUEgyptExcavation.Models;
 
 namespace BYUEgyptExcavation.TagHelpers
 {
+    //building a td tag with irole attribute
     [HtmlTargetElement("td", Attributes = "i-role")]
     public class RoleUsersTH : TagHelper
     {
@@ -24,6 +25,7 @@ namespace BYUEgyptExcavation.TagHelpers
         [HtmlAttributeName("i-role")]
         public string Role { get; set; }
 
+        //create the tags using the processAsync
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             List<string> names = new List<string>();
