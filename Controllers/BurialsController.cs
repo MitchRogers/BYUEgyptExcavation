@@ -28,7 +28,8 @@ namespace BYUEgyptExcavation.Controllers
             var filters = new Filters(id);
             ViewBag.Filters = filters;
             ViewBag.PreservationIndex = _context.Burial.Select(t => t.PreservationIndex).Distinct().ToList();
-            ViewBag.MummyId = _context.Burial.Select(t => t.MummyId).Distinct().ToList();
+            ViewBag.YearFound = _context.Burial.Select(t => t.YearFound).Distinct().ToList();
+            ViewBag.BurialId = _context.Burial.Select(t => t.BurialId).Distinct().ToList();
             //ViewBag.Mummies = _context.Burial.
 
             IQueryable<Burial> query = _context.Burial;
@@ -53,10 +54,19 @@ namespace BYUEgyptExcavation.Controllers
                 query = query.Where(t => t.HairColor == filters.HairColor);
             }
 
-            if (filters.HasMummyId)
+            if (filters.HasYearFound)
             {
-                query = query.Where(t => t.MummyId.ToString() == filters.MummyId);
+                query = query.Where(t => t.YearFound == filters.YearFound);
             }
+
+            if (filters.HasBurialId)
+            {
+                query = query.Where(t => t.BurialId == filters.BurialId);
+            }
+
+
+
+
 
             var mummies = query.OrderBy(t => t.BurialId).ToList();
             int pageSize = 10;
@@ -99,38 +109,38 @@ namespace BYUEgyptExcavation.Controllers
         }
 
 
-        // GET: Researcher Burials
-        //[Authorize(Roles = "Research, Admin")]
-        public async Task<IActionResult> ResearchIndex(int pageNum = 1)
-        {
-            int pageSize = 10;
-            int skip = ((pageNum - 1) * pageSize);
+        //// GET: Researcher Burials
+        ////[Authorize(Roles = "Research, Admin")]
+        //public async Task<IActionResult> ResearchIndex(int pageNum = 1)
+        //{
+        //    int pageSize = 10;
+        //    int skip = ((pageNum - 1) * pageSize);
 
-            return View(new IndexViewModel
+        //    return View(new IndexViewModel
 
-            {
-                //actual data set being returned
-                Burial = (await _context.Burial
-                .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
-                .ToListAsync()),
+        //    {
+        //        //actual data set being returned
+        //        Burial = (await _context.Burial
+        //        .FromSqlInterpolated($"SELECT * FROM Burial ORDER BY MummyID OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY")
+        //        .ToListAsync()),
 
-                /*.Skip((pageNum - 1) * pageSize)
-                .Take(pageSize)*/
+        //        /*.Skip((pageNum - 1) * pageSize)
+        //        .Take(pageSize)*/
 
-                //pages being made.
-                PageNumberingInfo = new PageNumberingInfo
-                {
-                    NumItemsPerPage = pageSize,
-                    CurrentPage = pageNum,
+        //        //pages being made.
+        //        PageNumberingInfo = new PageNumberingInfo
+        //        {
+        //            NumItemsPerPage = pageSize,
+        //            CurrentPage = pageNum,
 
-                    //for filtering, this needs to be different than just the total count.
-                    TotalNumItems = _context.Burial.Count()
-                }
+        //            //for filtering, this needs to be different than just the total count.
+        //            TotalNumItems = _context.Burial.Count()
+        //        }
 
-            });
+        //    });
 
 
-        }
+        //}
 
         // GET: Burials/Details/5
         public async Task<IActionResult> Details(int? id)
