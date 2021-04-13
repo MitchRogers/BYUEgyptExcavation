@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="form-group col-2">
-                    <label>Head Direction:</label>
+                    <label>Head Direction:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select name="filter" class="form-control">
                         <option value="all">All</option>
                         <option value="N/A">N/A</option>
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-group col-2">
-                    <label>Gender:</label>
+                    <label>Gender: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select name="filter" class="form-control">
                         <option value="all">All</option>
                         <option value="Undetermined">Undetermined</option>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="form-group col-2">
-                    <label>Hair Color:</label>
+                    <label>Hair Color:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select name="filter" class="form-control">
                         <option value="all">All</option>
                         <option value="N/A">N/A</option>
@@ -61,16 +61,16 @@
                 </div>
 
                 <div class="form-group col-2">
-                    <label>Year Found:</label>
+                    <label>Year Found:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select name="filter" class="form-control" asp-items="@(new SelectList(ViewBag.YearFound, "YearFound"))">
                         <option value="all">All</option>
                     </select>
                 </div>
 
 
-                <div class="row col-4 offset-5">
-                    <button type="submit" @*asp-route-filter="all-all-all-all"*@ class="btn btn-sm btn-primary px-3 mx-2">Filter</button>
-                    <a asp-action="Index" asp-route-id="" class="btn btn-sm btn-secondary px-3 mx-2">Clear</a>
+                <div style="margin-top:32px;" class="form-group col-2">
+                    <button style="height:40px;" type="submit" @*asp-route-filter="all-all-all-all"*@ class="btn btn-sm btn-primary px-3 mx-2">Filter</button>
+                    <a  style="height:40px; line-height:30px;" asp-action="Index" asp-route-id="" class="btn btn-sm btn-secondary px-3 mx-2">Clear</a>
                 </div>
             </div>
     </form>
