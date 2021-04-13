@@ -24,8 +24,10 @@ namespace BYUEgyptExcavation.Models
             string newChar = "/";
             PreservationIndex = PreservationIndex.Replace(oldChar, newChar);
             HeadDirection = filters[1];
+            HeadDirection = HeadDirection.Replace(oldChar, newChar);
             Gender = filters[2];
             HairColor = filters[3];
+            HairColor = HairColor.Replace(oldChar, newChar);
             YearFound = filters[4];         
 
 
