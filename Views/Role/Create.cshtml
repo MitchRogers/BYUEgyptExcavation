@@ -6,22 +6,25 @@
 
 @model string
 
-<br /><br /><br /><br /><br />
-    <div class="m-3">
+    <div class="container">
+        <br /><br /><br /><br /><br />
         <div class="m-3">
-            <h1 class="bg-primary text-white text-center p-1">Create a Role</h1>
-        </div>
-        <div asp-validation-summary="All" class="text-danger"></div>
-
-        @*form to create new roles*@
-        <form asp-action="Create" method="post" class="m-lg-3">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input name="name" class="form-control" />
+            <div class="m-3">
+                <h1 class="bg-primary text-white text-center p-1">Create a Role</h1>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-        </form>
-        <div class="m-lg-3">
-            <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            @*form to create new roles*@
+            <form asp-action="Create" method="post" class="m-lg-3">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input name="name" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+            <div class="m-lg-3">
+                <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a>
+            </div>
         </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </div>

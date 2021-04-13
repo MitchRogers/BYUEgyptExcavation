@@ -5,14 +5,16 @@
 }
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
     
-<br /><br /><br /><br /><br />
-<div class="m-3">
+
+<div class="container">
+    <br /><br /><br /><br /><br />
     <div class="m-3">
-        <h1 class="bg-primary text-white text-center p-1">All Roles</h1>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Home</a>
-        <a asp-action="Create" class="btn btn-secondary">Create a Role</a>
-        <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">Users</a>
-    </div>
+        <div class="m-3">
+            <h1 class="bg-primary text-white text-center p-1">All Roles</h1>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Home</a>
+            <a asp-action="Create" class="btn btn-secondary">Create a Role</a>
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">Users</a>
+        </div>
 
         @*table dynamically displaying all of the users and CRUD options*@
         <table class="table table-sm table-bordered table-bordered m-lg-3">
@@ -25,7 +27,7 @@
                     {
                         <td>@(role.Name + "er")</td>
                     }
-                    else 
+                    else
                     {
                         <td>@role.Name</td>
                     }
@@ -40,4 +42,6 @@
                 </tr>
             }
         </table>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </div>
