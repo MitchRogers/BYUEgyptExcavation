@@ -68,7 +68,7 @@ namespace BYUEgyptExcavation.Controllers
 
 
 
-            var mummies = query.OrderBy(t => t.BurialId).ToList();
+            var mummies = query.OrderBy(t => t.MummyId).ToList();
             int pageSize = 10;
             int skip = ((pageNum - 1) * pageSize);
 
