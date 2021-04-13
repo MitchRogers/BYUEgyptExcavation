@@ -5,6 +5,7 @@
 }
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
     
+<br /><br /><br /><br /><br />
 <div class="m-3">
     <div class="m-3">
         <h1 class="bg-primary text-white text-center p-1">All Roles</h1>
@@ -20,7 +21,14 @@
             {
                 <tr>
                     <td>@role.Id</td>
-                    <td>@role.Name</td>
+                    @if (@role.Name == "Research")
+                    {
+                        <td>@(role.Name + "er")</td>
+                    }
+                    else 
+                    {
+                        <td>@role.Name</td>
+                    }
                     <td><a class="btn btn-sm btn-outline-primary" asp-action="Update" asp-route-id="@role.Id">Update</a></td>
                     <td>
                         <form asp-action="Delete" asp-route-id="@role.Id" method="post">

@@ -6,12 +6,12 @@
 
 @model RoleEdit
 
-
+<br /><br /><br /><br /><br />
     <div class="m-3">
         <div class="m-3">
             <h1 class="bg-primary text-white text-center p-1">Update Role</h1>
-            <a asp-action="Index" class="btn btn-secondary">Back</a>
         </div>
+        <br />
             <div asp-validation-summary="All" class="text-danger"></div>
 
             @*form created to update specific role and its members*@
@@ -61,6 +61,8 @@
                     }
                 }
             </table>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary my-1">Save</button>
+            <br />
+            <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back</a>
         </form>
     </div>
