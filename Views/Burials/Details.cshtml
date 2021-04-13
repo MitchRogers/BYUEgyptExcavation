@@ -1,4 +1,5 @@
 ﻿@model BYUEgyptExcavation.Models.Burial
+@inject SignInManager<IdentityUser> user;
 
 @{
     ViewData["Title"] = "Details";
@@ -6,7 +7,7 @@
 }
 
 <div class="container">
-    <br /><br /><br /><br />
+    <br /><br /><br /><br /><br />
     <h1>Details</h1>
     <br />
     <div>
@@ -147,11 +148,11 @@
         <fieldset class="border border-secondary p-3 m-2">
             <legend style="width: auto;" class="px-3">Overall Impression</legend>
             <div class="row">
-                <div class="form-group col-5 offset-2">
+                <div class="form-group col-6 offset-2">
                     <label asp-for="PreservationIndex" class="control-label">Preservation Index</label>
                     <p asp-for="PreservationIndex" class="form-control">@Html.DisplayFor(model => model.PreservationIndex)</p>
                 </div>
-                <div class="form-group form-check col-3">
+                <div class="form-group form-check col-2 offset-sm-1">
                     <label class="form-check-label">@Html.DisplayNameFor(model => model.Wrapped)</label> &nbsp;&nbsp; @Html.DisplayFor(model => model.Wrapped)
                 </div>
             </div>
@@ -562,9 +563,14 @@
         <br />
     </div>
     <div>
-        <a asp-action="Edit" class="btn btn btn-primary my-1" asp-route-id="@Model.MummyId">Edit Record</a>
-        <br />
+
+        @*edit button displayed for users with permission*@
+        @if (user.IsSignedIn(User) && (User.IsInRole("Admin")) || User.IsInRole("Research"))
+        {
+            <a asp-action="Edit" class="btn btn btn-primary my-1" asp-route-id="@Model.MummyId">Edit Record</a>
+            <br />
+        }
         <a asp-action="Index" class="btn btn-sm my-1 btn-outline-secondary">Back to List</a>
-    </div>
+        </div>
 
 </div>
